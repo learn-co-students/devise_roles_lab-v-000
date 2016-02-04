@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
 gem 'rails', '4.2.2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -14,7 +13,7 @@ end
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
-gem 'pg'
+gem 'sqlite3'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
