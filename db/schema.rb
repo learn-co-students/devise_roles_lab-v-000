@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20160118210027) do
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
   add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

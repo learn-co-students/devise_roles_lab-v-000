@@ -1,6 +1,6 @@
-require 'rails_helper'
 
-RSpec.describe User, type: :model do
+describe User do
+
   before(:each) { @user = User.new(email: 'user@example.com') }
 
   subject { @user }
@@ -24,4 +24,5 @@ RSpec.describe User, type: :model do
     @user.role = :admin
     expect(@user.role).to eq 'admin'
   end
+
 end

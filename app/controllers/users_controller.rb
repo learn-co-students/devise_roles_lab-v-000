@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :is_admin?, :except => :show
 
+
   def index
     @users = User.all
   end
@@ -16,7 +17,22 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to user_path(@user), :alert => 'User Information Updated'
     else
-      redirect_to user_path(@user), :alert => 'Information Was No Updated!!'
+      redirect_to user_path(@user), :alert => 'Information Was Not Updated!!'
+
+    @user = User.find(params[:id])
+    unless current_user.admin?
+      unless @user == current_user
+        redirect_to :back, :alert => "Access denied."
+      end
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(secure_params)
+      redirect_to users_path, :notice => "User updated."
+    else
+      redirect_to users_path, :alert => "Unable to update user."
     end
   end
 
@@ -47,4 +63,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:role)
     end
+
 end
