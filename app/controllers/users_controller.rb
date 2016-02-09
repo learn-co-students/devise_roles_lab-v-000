@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user:
+  before_action :authenticate_user!
   before_action :is_admin?, :except => :show
 
   def index
@@ -34,13 +34,13 @@ class UsersController < ApplicationController
 
     def admin_or_current_user?
       unless current_user.admin? || @user == current_user
-        redirect_to :back, :alert => 'Restricted Access!!'
+        redirect_to :back, :alert => 'Access denied'
       end
     end
 
     def is_admin?
       unless current_user.admin?
-        redirect_to :back, :alert => 'Restricted Access!!'
+        redirect_to :back, :alert => 'Access denied.'
       end
     end
 
