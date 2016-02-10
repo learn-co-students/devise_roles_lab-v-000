@@ -9,7 +9,11 @@ feature 'Sign Up', :devise do
   #   When I sign up with a valid email address and password
   #   Then I see a successful sign up message
   scenario 'visitor can sign up with valid email address and password' do
-    sign_up_with('test@example.com', 'please123', 'please123')
+    visit new_user_registration_path
+    fill_in 'Email', with: 'test@example.com'
+    fill_in 'Password', with: 'please123'
+    fill_in 'Password confirmation', with: 'please123'
+    click_button 'Sign up'
     txts = [I18n.t( 'devise.registrations.signed_up'), I18n.t( 'devise.registrations.signed_up_but_unconfirmed')]
     expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
   end
@@ -19,7 +23,11 @@ feature 'Sign Up', :devise do
   #   When I sign up with an invalid email address
   #   Then I see an invalid email message
   scenario 'visitor cannot sign up with invalid email address' do
-    sign_up_with('bogus', 'please123', 'please123')
+    visit new_user_registration_path
+    fill_in 'Email', with: 'bogusemail'
+    fill_in 'Password', with: 'please123'
+    fill_in 'Password confirmation', with: 'please123'
+    click_button 'Sign up'
     expect(page).to have_content 'Email is invalid'
   end
 
@@ -28,7 +36,11 @@ feature 'Sign Up', :devise do
   #   When I sign up without a password
   #   Then I see a missing password message
   scenario 'visitor cannot sign up without password' do
-    sign_up_with('test@example.com', '', '')
+    visit new_user_registration_path
+    fill_in 'Email', with: 'test@example.com'
+    fill_in 'Password', with: ''
+    fill_in 'Password confirmation', with: ''
+    click_button 'Sign up'
     expect(page).to have_content "Password can't be blank"
   end
 
@@ -37,7 +49,11 @@ feature 'Sign Up', :devise do
   #   When I sign up with a short password
   #   Then I see a 'too short password' message
   scenario 'visitor cannot sign up with a short password' do
-    sign_up_with('test@example.com', 'please', 'please')
+    visit new_user_registration_path
+    fill_in 'Email', with: 'test@example.com'
+    fill_in 'Password', with: '123'
+    fill_in 'Password confirmation', with: '123'
+    click_button 'Sign up'
     expect(page).to have_content "Password is too short"
   end
 
@@ -46,7 +62,11 @@ feature 'Sign Up', :devise do
   #   When I sign up without a password confirmation
   #   Then I see a missing password confirmation message
   scenario 'visitor cannot sign up without password confirmation' do
-    sign_up_with('test@example.com', 'please123', '')
+    visit new_user_registration_path
+    fill_in 'Email', with: 'test@example.com'
+    fill_in 'Password', with: 'please123'
+    fill_in 'Password confirmation', with: ''
+    click_button 'Sign up'
     expect(page).to have_content "Password confirmation doesn't match"
   end
 
@@ -55,7 +75,11 @@ feature 'Sign Up', :devise do
   #   When I sign up with a mismatched password confirmation
   #   Then I should see a mismatched password message
   scenario 'visitor cannot sign up with mismatched password and confirmation' do
-    sign_up_with('test@example.com', 'please123', 'mismatch')
+    visit new_user_registration_path
+    fill_in 'Email', with: 'test@example.com'
+    fill_in 'Password', with: 'please123'
+    fill_in 'Password confirmation', with: 'please'
+    click_button 'Sign up'
     expect(page).to have_content "Password confirmation doesn't match"
   end
 
