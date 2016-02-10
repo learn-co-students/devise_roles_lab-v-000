@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_user
-    User.find_by(id: session[:user_id])
-  end 
+  # def current_user
+  #   binding.pry
+  #   User.find_by(id: session[:user_id])
+  # end 
 end
