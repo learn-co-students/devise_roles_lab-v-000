@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
 
   def new
@@ -14,5 +14,8 @@ class UserController < ApplicationController
   end
 
   def delete
+  end
+
+  def show
   end
 end
