@@ -12,6 +12,7 @@ group :development, :test do
 end
 gem 'devise'
 gem 'devise_invitable'
+gem 'cancancan'
 gem 'high_voltage'
 gem 'sqlite3'
 group :development do
