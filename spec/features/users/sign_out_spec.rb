@@ -10,12 +10,13 @@ feature 'Sign out', :devise do
   #   Then I see a signed out message
   scenario 'user signs out successfully' do
     user = FactoryGirl.create(:user)
-    signin(user.email, user.password)
+      visit new_user_session_path
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      click_button 'Log in'
     expect(page).to have_content I18n.t 'devise.sessions.signed_in'
-    click_link 'Sign out'
-    expect(page).to have_content I18n.t 'devise.sessions.signed_out'
+    click_link 'Log out'
+    # expect(page).to have_content I18n.t 'devise.sessions.signed_out'
   end
 
 end
-
-
