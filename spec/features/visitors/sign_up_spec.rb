@@ -2,6 +2,14 @@
 #   As a visitor
 #   I want to sign up
 #   So I can visit protected areas of the site
+def sign_up_with(email, pass, pass_conf)
+  visit new_user_registration_path
+  fill_in 'Email', with: email
+  fill_in 'Password', with: pass
+  fill_in 'Password confirmation', with: pass_conf
+  click_button 'Sign up'
+end
+
 feature 'Sign Up', :devise do
 
   # Scenario: Visitor can sign up with valid email address and password
