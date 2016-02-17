@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
     enum role: [:user, :vip, :admin]
    after_initialize :default_role
+
+   has_many :posts
  
    def default_role
      self.role ||= :user

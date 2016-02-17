@@ -26,4 +26,4 @@ class UsersController < ApplicationController
   end
 
 
-end
+end #ends class
