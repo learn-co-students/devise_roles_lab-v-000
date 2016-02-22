@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     unless @user == current_user || @user.admin?
       redirect_to root_path, alert: "Access denied."
     end  
-  end 
+  end   
 
   private
 
