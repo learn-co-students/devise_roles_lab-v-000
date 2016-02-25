@@ -2,6 +2,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_only, :except => :show
 
+  def new
+  end
+
+  def create
+  end
+  
   def index
     @users = User.all
   end
