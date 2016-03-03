@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
+post_one = Post.create(title: "Post 1", content: "Content 1")
+post_two = Post.create(title: "Grounders", content: "Jus drein jus daun")

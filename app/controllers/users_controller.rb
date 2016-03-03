@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    reset_session
   end
 
   private
