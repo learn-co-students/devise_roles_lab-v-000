@@ -1,0 +1,8 @@
+<h2><%= @post.title %></h2><br>
+<%= @post.description %><br>
+<% if can? :update, @post %>
+	<%= link_to "Edit", edit_post_path(@post) %><br>
+<% end %>
+<% if can? :destroy, @post %>
+	<%= link_to "Delete", post_path(@post), method: 'delete' %><br>
+<% end %>

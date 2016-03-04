@@ -1,0 +1,14 @@
+post_1:
+	title: post 1
+	content: first post
+	id: 1
+
+post_2:
+	title: post 2
+	content: second post
+	id: 1
+
+post_3:
+	title: post 3
+	content: third post
+	id: 1

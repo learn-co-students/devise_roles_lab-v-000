@@ -2,8 +2,24 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
 
-    can :read, User, {id: user.id}
+    can :read, User, {id: user.id} 
+    
+    can :read, Post
+        return if user.nil?
+ 
+    can [:update, :destroy, :create], Post, {owner_id: user.id}
+        return if user.user?
+    
+    can [:update, :destroy, :create], Post
+        return if user.vip?
+ 
+    can :manage, Post if user.admin?
+  
+     
+
+
     
 
 
