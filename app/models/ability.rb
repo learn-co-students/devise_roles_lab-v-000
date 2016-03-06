@@ -7,7 +7,7 @@ class Ability
     can :read, User, {id: user.id} 
     
     can :read, Post
-        return if user.nil?
+        return if user.nil? || !user.persisted?
  
     can [:update, :destroy, :create], Post, {owner_id: user.id}
         return if user.user?
