@@ -1,0 +1,17 @@
+jim:
+  id: 1
+  name: jim
+  email: jim@jim.com
+  password: 12345678
+
+dan:
+  id: 2
+  name: dan
+  email: dan@dan.com
+  password: 12345678
+
+brett:
+  id: 3
+  name: brett
+  email: brett@brett.com
+  password: 12345678
