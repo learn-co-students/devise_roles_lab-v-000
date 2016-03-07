@@ -1,0 +1,29 @@
+issues
+
+Missing partial layouts/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/Corey/Development/code/devise_roles_lab-v-000/app/views"
+  * "/Users/Corey/.rvm/gems/ruby-2.2.1/gems/devise_invitable-1.5.5/app/views"
+  * "/Users/Corey/.rvm/gems/ruby-2.2.1/gems/devise-3.5.4/app/views"
+
+  8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </main>
