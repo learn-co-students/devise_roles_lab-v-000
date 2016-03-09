@@ -15,7 +15,7 @@ gem 'devise_invitable'
 gem 'high_voltage'
 gem 'sqlite3'
 group :development do
-  gem 'better_errors'
+  # gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
@@ -30,4 +30,6 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'guard-rspec', require: false
+  gem 'pry'
 end
