@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :posts
+
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role
 

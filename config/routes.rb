@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/pages/about', to: 'visitors#about'
   devise_for :users
   resources :users
+  resources :posts
 end
