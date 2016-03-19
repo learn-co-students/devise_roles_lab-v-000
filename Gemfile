@@ -14,6 +14,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
 gem 'sqlite3'
+gem 'cancancan'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
@@ -30,4 +31,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'pry'
 end
