@@ -47,6 +47,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (8.2.1)
+    cancancan (1.13.1)
     capybara (2.6.0)
       addressable
       mime-types (>= 1.16)
@@ -106,6 +107,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
@@ -113,6 +115,10 @@ GEM
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -176,6 +182,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    slop (3.6.0)
     spring (1.6.2)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
@@ -212,6 +219,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   byebug
+  cancancan (~> 1.13, >= 1.13.1)
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -223,6 +231,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  pry (~> 0.10.3)
   quiet_assets
   rails (= 4.2.2)
   rails_layout
