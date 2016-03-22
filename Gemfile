@@ -11,6 +11,7 @@ group :development, :test do
   gem 'spring'
 end
 gem 'devise'
+gem 'cancan'
 gem 'devise_invitable'
 gem 'high_voltage'
 gem 'sqlite3'
