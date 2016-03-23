@@ -1,0 +1,10 @@
+<h1>Post by <%= @post.user.email || "" %></h1>
+
+<p><%= @post.content %></p>
+
+<% if can? :update, @post %>
+  <%= link_to "Edit Post", edit_post_path(@post) %>
+<% end %>
+<% if can? :destroy, @post %>
+  <%= link_to "Delete Post", @post, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>
