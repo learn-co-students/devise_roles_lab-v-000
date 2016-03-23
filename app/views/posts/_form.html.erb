@@ -1,0 +1,10 @@
+<%= form_for post do |f| %>
+  
+  <%= f.label :content %>
+  <%= f.label :content, placeholder: 'Post content' %>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <%= f.submit %>
+
+<% end %>
