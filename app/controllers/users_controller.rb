@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :admin_only, except: :show
+
   def index
-    @user = current_user
+    @users = User.all
   end
 
   def new
-    @user = User.new
+
   end
 
   def create
@@ -13,9 +16,12 @@ class UsersController < ApplicationController
   end
 
   def show
-      @user = current_user
-      flash[:error] = 'Access denied.' unless current_user.id == params[:id]
-      flash[:alert] = 'Signed out successfully.'
+    @user = User.find(params[:id])
+    unless current_user.admin?
+      unless @user == current_user
+        redirect_to :back, alert: "Access denied."
+      end
+    end
   end
 
   def edit
@@ -23,15 +29,31 @@ class UsersController < ApplicationController
   end
 
   def update
-    return head(:forbidden) unless current_user.admin?
+    @user = User.find(params[:id])
+    if @user.update_attributes(secure_params)
+      redirect_to users_path, notice: "User updated."
+    else
+      redirect_to users_path, alert: "Unable to update user."
+    end
   end
 
   def destroy
-    return head(:forbidden) unless current_user.admin?
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to users_path, notice: "User deleted."
   end
 
+  private
 
+  def secure_params
+    params.require(:user).permit(:role)
+  end
 
+  def admin_only
+    unless current_user.admin?
+      redirect_to :back, alert: "Access denied."
+    end
+  end
 
 
 end
