@@ -13,11 +13,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+      @user = current_user
+      flash[:error] = 'Access denied.' unless current_user.id == params[:id]
+      flash[:alert] = 'Signed out successfully.'
   end
 
   def edit
-    return head(:forbidden) unless current_user
+
   end
 
   def update
