@@ -1,0 +1,16 @@
+<h1>User profile</h1>
+<%= current_user.email %>
+<h3><%= link_to 'Create a new post', new_user_post_path(current_user) %></h3>
+<p>
+
+</p>
+<h3>Your posts</h3>
+<% if @posts %>
+<% @posts.each do |post| %>
+<li><%= post.content %></li>
+<% end %>
+<% else %>
+<p>
+  You don't have any posts yet!
+</p>
+<% end %>
