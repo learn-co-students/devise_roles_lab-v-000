@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'visitors/index'
+
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/index'
+
+  get 'users/update'
+
+  get 'users/show'
+
+  get 'users/destroy'
+
   root to: 'visitors#index'
   devise_for :users
   resources :users
