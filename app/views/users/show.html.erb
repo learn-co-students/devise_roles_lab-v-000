@@ -1,0 +1,13 @@
+<% if cannot? :read, @user %>
+    Access denied.
+    <br>
+<% else %>
+
+
+<h1>My Profile</h1>
+
+<%=@user.name%>
+<br>
+<%=@user.email%>
+
+<%end%>
