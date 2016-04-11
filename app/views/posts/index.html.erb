@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+<h3><%= post.user.try(:name) %></h3>
+<p><%= post.content %></p>
+<p><%= link_to "Post link", post_path(post) %></p>
+<% end %>
