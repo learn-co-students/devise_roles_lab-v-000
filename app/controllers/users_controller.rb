@@ -14,6 +14,9 @@ class UsersController < ApplicationController
   end
 
   def show
+# byebug
+    @user = User.find_by(id: params[:id])
+    authorize! :read, @user
   end
 
   def update

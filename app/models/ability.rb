@@ -13,6 +13,8 @@ class Ability
     else
         can :read, Post
     end
+
+    can :read, User, :id => user.id
     
   end
 
