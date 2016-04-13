@@ -5,3 +5,5 @@
 
 <%= link_to "Sign up", new_user_registration_path %>
 <%= link_to "Home", root_path %>
+<%= link_to "Lemme see my shit", user_path(current_user) if signed_in?%>
+<%= link_to "Lemme see all the shit", posts_path if signed_in? %>

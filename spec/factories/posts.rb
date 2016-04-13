@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :post do
     content "MyText"
-owner "MyString"
+    owner {User.new(name: "owner")}
   end
 
 end

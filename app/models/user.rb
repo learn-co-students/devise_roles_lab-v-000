@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
 
   has_many :posts
+
+  accepts_nested_attributes_for :posts
+
 end

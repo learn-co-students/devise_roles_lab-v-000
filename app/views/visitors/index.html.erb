@@ -1,5 +1,10 @@
 <h1>Welcome</h1>
-<br>
-<h6>you schmuck</h6>
+<br></br>
 
-<%= link_to "Log in", new_user_session_path %>
+<% if signed_in? %>
+    <%= link_to "Write a new post", new_post_path %>
+<% end %>
+
+<br></br>
+
+<h6>you schmuck</h6>

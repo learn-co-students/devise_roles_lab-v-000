@@ -1,0 +1,10 @@
+
+  <%= fields_for :post do |p| %>
+
+    <%= text_area_tag :content %><br>
+    <%= hidden_field_tag :user_id %>
+
+    <%= submit_tag "Submit" %>
+
+  <% end %>
+

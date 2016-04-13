@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :posts
+  resources :users do
+    resources :posts
+  end
+
   get 'visitors/index'
 
   root to: 'visitors#index'
-  devise_for :users
-  resources :users
+   
+   
 
   # get 'users/:id/profile', to: 'users#show'
   # The priority is based upon order of creation: first created -> highest priority.
