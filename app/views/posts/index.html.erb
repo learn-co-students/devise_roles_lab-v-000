@@ -1,0 +1,16 @@
+<h1>Posts Index</h1>
+
+<ul>
+  <% @posts.each do |p| %>
+    
+      <li><p><%= p.created_at.strftime("On %A %B %C ") %>
+        <% if p.owner %>
+          <%=link_to p.owner.name, user_path(p.owner)%> said: </p></li>
+        <% end %>
+          <p><%= p.content %></p>
+    
+  <% end %>
+</ul>
+
+
+<%= link_to "New Post", new_user_post_path %>
