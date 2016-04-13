@@ -20,6 +20,13 @@ class UsersController < ApplicationController
     
   end
 
+  def edit
+    @user=User.find_by(id: params[:id])
+    return head(:forbidden) unless current_user.admin? || current_user=@user
+    
+
+  end
+
   def update
     return head(:forbidden) unless current_user.admin?
     user=User.find(params[:id])
