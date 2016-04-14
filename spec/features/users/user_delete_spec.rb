@@ -1,3 +1,4 @@
+=begin
 include Warden::Test::Helpers
 Warden.test_mode!
 
@@ -26,7 +27,7 @@ feature 'User delete', :devise, :js do
   end
 
 end
-
+=end
 
 
 
