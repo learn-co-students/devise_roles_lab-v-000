@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users
   resources :users
+
+  get '/pages/about' => 'visitors#about'
+  get '/pages/home' => 'visitors#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
