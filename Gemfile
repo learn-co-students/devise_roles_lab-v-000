@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 group :development, :test do
   gem 'byebug'
+  gem 'pry'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
@@ -21,6 +22,7 @@ group :development do
   gem 'spring-commands-rspec'
 end
 group :development, :test do
+  gem 'cancancan', '~> 1.10'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'

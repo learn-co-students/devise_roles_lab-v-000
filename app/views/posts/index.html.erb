@@ -1,0 +1,12 @@
+<h1>Posts#index</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+
+<h2>Posts everyone!</h2>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= link_to "Post ID:#{post.id}", post_path(post) %>
+    <%= link_to "Edit post", edit_post_path(post) if current_user && (current_user.admin? || current_user.vip?) %>
+    <%= link_to "Delete post", post_path(post), method: :delete if current_user && current_user.admin? %></li>
+  <% end %>
+</ul>
+<h3><%= link_to "New Post", new_post_path %>
