@@ -13,12 +13,12 @@ In this lab, we're going to make a simple discussion board.
 We'll have a Post model, and three user roles: user, vip, and admin.
 
 * Users can read anyone's Posts, and create, read, update, and delete their own posts.
-* VIPs can do everything a User can do, and update and delete other users posts.
-* Admins can do anything to any Post and any other User.
+* VIPs can do everything a User can do, and update other users' posts.
+* Admins can do anything that Users and VIPs can do, and they can delete other users' posts.
 
 ## Instructions
 
-Provided is a Rails skeleton with the Devise gem installed.
+Provided is a Rails skeleton with the [Devise](https://github.com/plataformatec/devise) gem installed.
 
 1. Run the migrations. A basic User model and migrations have been set up for you as part of the devise install.
 2. Add roles to the user model. The specs will tell you what roles are expected of the model.
@@ -34,7 +34,7 @@ You will need to write specs for the `Post` model and controller. You can refere
   - Posts can be created by any user
   - Anyone can read any post
   - Users can edit or delete Posts they own
-  - VIPs can edit or delete anyone's Posts
+  - VIPs can edit anyone's Posts
   - Admins can do anything to any post.
 3. Write views for your posts.
 4. Try it out!
