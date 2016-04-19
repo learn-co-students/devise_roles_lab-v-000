@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
+
 
   def index
-    @user = User.find_by(id: session[:user_id])
+    @users = User.all
   end
 
   def show
+    @user = User.find(params[:id])
+    if !current_user.admin? && current_user != @user
+      flash[:alert] = "Access denied."
+      redirect_to root_path
+    end
   end
 end
