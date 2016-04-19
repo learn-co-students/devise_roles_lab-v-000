@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete :user_id
+    session[:user_id] = nil
     redirect_to '/users/sign_in'
   end
 
