@@ -15,7 +15,6 @@ gem 'devise_invitable'
 gem 'high_voltage'
 gem 'sqlite3'
 group :development do
-  gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
