@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 describe Post do
-  it 'writes some tests' do
-    # This test is here to remind you to test
-    # your Post model. You can delete it after
-    # you've written other tests
-    expect(true).to eq(false)
+  it 'belongs to a user' do
+    expect(Post.new).to respond_to(:user)
   end
 end
