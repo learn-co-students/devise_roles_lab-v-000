@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-	before_filter :admin_only, only: [:destroy]
+	before_filter :admin_only, only: :destroy
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+	before_action :authenticate_user!, except: [:index, :new, :create]
+	
   # GET /users
   def index
     @users = User.all
@@ -9,6 +10,9 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+  	unless current_user.id == params[:id].to_i
+	  		redirect_to :back, :alert => "Access denied."
+	  	end
   end
 
   # GET /users/new
