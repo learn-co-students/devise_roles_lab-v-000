@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource 
 
   def index
     @posts = Post.all
@@ -19,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
     @post.update(post_params)
     redirect_to post_path(@post)
   end
