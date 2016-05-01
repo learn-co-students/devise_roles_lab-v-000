@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
-  def edit
+  def show
     unless current_user.admin? || @user == current_user
       redirect_to users_path
     end
@@ -43,8 +43,8 @@ class UsersController < ApplicationController
     def authorize_user
       raise "Not Authorized" unless current_user
 
-      unless current_user.admin? || current_user.vip?
-        render :text => "You're not authorized to see that."
+      unless current_user.admin? || current_user.vip? || current_user == @user
+        render :text => "Access denied. You're not authorized to see that."
       end
     end
 

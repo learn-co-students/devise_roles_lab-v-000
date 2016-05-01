@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role
 
-  validates_presence_of :role, :name
+  validates_presence_of :role, :email
 
   private 
 
