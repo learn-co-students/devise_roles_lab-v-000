@@ -25,9 +25,13 @@ Provided is a Rails skeleton with the [Devise](https://github.com/plataformatec/
 3. Add authentication and authorization filters to your users controller. Ensure that only administrators can update or destroy users.
 4. Run `rails generate devise:views` to generate the views.
 
-Once you've reached this point, all the specs should be passing. For the next part, we'll create a `Post` model, which has different permissions for different user roles.
+Once you've reached this point, all the `User` specs should be passing. For the
+next part, we'll create a `Post` model, which has different permissions for
+different `User` roles.
 
-You will need to write specs for the `Post` model and controller. You can reference the feature and model specs for the `Users` controller to see how to write these.
+We've written one basic `Post` spec for you, but you will need to write
+additional specs for the `Post` model and controller. You can reference the
+feature and model specs for the `Users` controller to see how to write these.
 
 1. Create a `Post` model and migration. Posts have an owner and content.
 2. Create a posts controller. Ensure that it enforces the following requirements:
