@@ -1,0 +1,5 @@
+<% if current_user %>
+  <p> Welcome, <%= current_user.email %> </p>
+<% else %>
+  <p> Welcome. Please Sign up or Log in </p>
+<% end %>
