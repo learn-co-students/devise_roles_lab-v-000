@@ -1,15 +1,28 @@
 class PostsController < ApplicationController
   # load_and_authorize_resource
   # skip_authorize_resource :only => :index
+  before_action :authenticate_user!, except: [:index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
+    @posts = Post.all
   end
 
   def new
+    if unauthorized?
+      flash[:alert] = "Access denied."
+      redirect_to root_path
+    end
+    @post = Post.new
   end
 
   def create
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      render :new
+    end
   end
 
   def show

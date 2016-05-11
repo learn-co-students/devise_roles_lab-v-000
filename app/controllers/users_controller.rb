@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # load_and_authorize_resource
   # skip_authorize_resource :only => :index
+  before_action :authenticate_user!, except: [:create, :new, :index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,10 +15,11 @@ class UsersController < ApplicationController
   end
 
   def new
-
+    @user = User.new
   end
 
   def create
+    @user = User.new(user_params)
   end
 
   def edit
