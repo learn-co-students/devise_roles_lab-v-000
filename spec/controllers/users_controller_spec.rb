@@ -33,6 +33,7 @@ describe UsersController do
 
       before do
         sign_in!('admin')
+        user.role = 'admin'
       end
 
       it 'allows the request' do
