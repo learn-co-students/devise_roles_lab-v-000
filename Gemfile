@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
@@ -7,6 +8,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'high_voltage'
 gem 'sqlite3'
+gem 'cancancan'
+gem 'cancan'
 
 group :development do
   gem 'better_errors'
