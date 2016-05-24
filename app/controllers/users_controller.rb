@@ -1,39 +1,58 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
+  before_action :authenticate_user!, except: [:create, :new]
+  before_action :set_user!, except: [:create, :index, :new]
+  before_action :admin_only, only: :destroy
 
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
+    unless current_user.admin?
+      unless @user == current_user
+        redirect_to :back, :alert => "Access denied."
+      end
+    end
   end
 
   def new
-    @user = User.new
   end
 
   def create
-    @user = User.create(email: params[:email], password: params[:password])
-    if user.save
-      redirect_to user_path(@user)
-    end
+    @user = User.find_or_initialize_by(email: params[:email])
+    @user.update(password: params[:password])
+    redirect_to user_path(@user)
   end
 
   def edit
   end
 
   def update
-    return head(:forbidden) unless current_user.admin?
-    @user.update(user_params)
+    if @user.update_attributes(secure_params)
+      redirect_to users_path, :notice =>  "User updated."
+    else
+      redirect_to users_path, :alert => "Unable to update."
+    end
   end
 
   def destroy
     @user.destroy
+    redirect_to users_path, :notice => "User deleted."
   end
 
   private
-  def user_params
-    params.require(:user).permit(:email)
+  def admin_only
+    unless current_user.admin? || @user == current_user
+      redirect_to users_path, :alert => "Access denied."
+    end
   end
+
+  def secure_params
+    params.require(:user).permit(:role)
+  end
+
+  def set_user!
+    @user = User.find(params[:id])
+  end
+
 end
