@@ -1,0 +1,12 @@
+<h1> Welcome </h1>
+
+<%= current_user.try(:email) %>
+<%= current_user.try(:name) %>
+
+<ul>
+  <% if current_user.posts.any? %>
+    <% current_user.posts.each do |post| %>
+      <li><p><%=post.content%></p></li>
+    <%end%>
+  <%end%>
+</ul>
