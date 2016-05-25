@@ -1,0 +1,5 @@
+<%= @post.content %>
+
+<% if @post.owner can? :edit, @post %>
+  <%= link_to edit_post_path(@post) %>
+<% end %>

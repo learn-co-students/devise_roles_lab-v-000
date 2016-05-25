@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :post do
-    content "content"
-    association :user
+    content "MyText"
+    owner {User.new(name: "owner")}
   end
+
 end
