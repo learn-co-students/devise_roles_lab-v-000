@@ -1,0 +1,6 @@
+
+"User"
+<%if user_signed_in?%>
+  <%=current_user.role%>
+  <%=current_user.email%>
+<%end%>
