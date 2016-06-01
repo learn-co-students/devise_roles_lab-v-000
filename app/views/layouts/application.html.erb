@@ -13,7 +13,9 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">
-      <%= render 'layouts/messages' %>
+      <h4><%= welcome_message_for(current_user) %></h4>
+      <%= render 'layouts/messages' %><br>
+
       <%= yield %>
     </main>
   </body>
