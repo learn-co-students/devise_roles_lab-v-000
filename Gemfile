@@ -12,7 +12,7 @@ group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
-  gem 'web-console'
+
 end
 
 group :development, :test do
@@ -20,6 +20,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'tzinfo-data', platform: [:mingw, :mswin, :x64_mingw]
+  gem 'pry'
 end
 
 group :test do
@@ -27,4 +29,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+   # gem 'web-console'
 end
