@@ -1,4 +1,15 @@
 describe PostsController do
+  describe '#create' do
+    context 'any user' do
+      before do
+        sign_in!
+      end
+      
+      it 'can create a post' do
+        binding.pry
+      end
+    end
+  end
   describe '#update' do
     context 'neither admin nor vip' do
       before do
