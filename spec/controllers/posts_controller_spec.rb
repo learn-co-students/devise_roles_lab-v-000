@@ -1,4 +1,15 @@
 describe PostsController do
+  describe '#create' do
+    context 'user with role of user' do
+      before do
+        sign_in!('user')
+      end
+
+      it 'can create a post' do
+        expect(Post.create)
+      end
+    end
+  end
   describe '#update' do
     context 'neither admin nor vip' do
       before do
