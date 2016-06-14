@@ -1,12 +1,12 @@
 describe PostsController do
   describe '#create' do
-    context 'any user' do
+    context 'user with role of user' do
       before do
-        sign_in!
+        sign_in!('user')
       end
-      
+
       it 'can create a post' do
-        binding.pry
+        expect(Post.create)
       end
     end
   end
