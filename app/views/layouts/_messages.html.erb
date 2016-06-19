@@ -1,0 +1,5 @@
+<% if flash.any? %>
+  <% flash.each do |name, message| %>
+    <%= content_tag :div, (name == 'alert') ? message.humanize : message, class: name %>
+  <% end %>
+<% end %>
