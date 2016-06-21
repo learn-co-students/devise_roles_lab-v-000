@@ -6,16 +6,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @user == current_user
-      redirect_to '/'
-    else
-      flash[:message] = "Access denied."
-    end
+    redirect_to users_path, alert: "Access denied." unless current_user == @user
   end
 
   def destroy
-    @user.destroy if @user.admin?
-    redirect_to users_path, notice: 'Successfully deleted user.'
+    current_user.destroy if current_user.admin?
+    redirect_to users_path
   end
 
   private
