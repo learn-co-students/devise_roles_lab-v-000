@@ -2,16 +2,19 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def index
-    # binding.pry
-    @user = User.first
+    @users = User.all
   end
 
   def show
-    @user
+    if @user == current_user
+      redirect_to '/'
+    else
+      flash[:message] = "Access denied."
+    end
   end
 
   def destroy
-    @user.destroy
+    @user.destroy if @user.admin?
     redirect_to users_path, notice: 'Successfully deleted user.'
   end
 
