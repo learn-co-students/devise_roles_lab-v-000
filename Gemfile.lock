@@ -216,6 +216,3 @@ DEPENDENCIES
   sqlite3
   uglifier
   web-console
-
-BUNDLED WITH
-   1.11.2
