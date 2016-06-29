@@ -1,0 +1,6 @@
+<%= @users.each do |user| %>
+<%= user.name %>
+<%= user.posts.each do |post| %>
+<%= post.content %>
+<% end %>
+<% end %>
