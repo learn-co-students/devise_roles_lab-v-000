@@ -1,0 +1,22 @@
+<h3>User</h3>
+<p>Name: <%= @user.name if @user.name %></p>
+<p>Email: <%= @user.email if @user.email %></p>
+
+<% if @user.posts.any? %>
+  <h2>Posts</h2>
+  <% @user.posts.each do |post| %>
+    <div>
+      <%= post.content %>
+      <% if @user == current_user || current_user.vip? || current_user.admin? %>
+        <a href="/posts/<%= "#{post.id}" %>/edit">Edit</a>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @user == current_user %>
+  <%= form_for :post, url: posts_path do |f| %>
+    Content: <%= f.text_field :content %><br />
+    <%= f.submit %>
+  <% end %>
+<% end %>

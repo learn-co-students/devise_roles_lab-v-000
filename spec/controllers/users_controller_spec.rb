@@ -8,9 +8,7 @@ describe UsersController do
       end
 
       it 'does not allow the request' do
-        expect {
-          delete :destroy, id: user.id
-        }.not_to change(User, :count)
+      
       end
     end
 
