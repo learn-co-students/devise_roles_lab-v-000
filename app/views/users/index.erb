@@ -1,0 +1,5 @@
+<% @users.each do |user| %>
+  <%= user.email %>
+  <p><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %>
+</p>
+<% end %>

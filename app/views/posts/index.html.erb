@@ -1,0 +1,7 @@
+<%= link_to "New Post", new_post_path %>
+
+<% @posts.each do |post| %>
+  <h3><%= link_to post.content, post_path(post)%></h3>
+  <p>by <%= post.try(:user).try(:email) %></p>
+  <p><%= link_to "Edit", edit_post_path(post)%></h3>
+<% end %>
