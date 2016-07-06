@@ -5,4 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   enum role: [:user, :vip, :admin]
+
+  def initialize=(user)
+    self.user!
+  end
+
 end
+
+#if current_user.try(:admin?)
