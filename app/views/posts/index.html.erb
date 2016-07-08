@@ -1,0 +1,9 @@
+<ul>
+<% @posts.each do |post| %>
+  <li> <%= post.content %> <%= post.user.email%>
+    <% if can? :update, post %>
+      <%= link_to "Edit", edit_post_path(post) %>
+    <% end %>
+  </li>
+<% end %>
+</ul>

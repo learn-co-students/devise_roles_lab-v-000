@@ -1,0 +1,13 @@
+<h1>Welcome</h1>
+<h2> <%= current_user.try(:name) %></h2>
+
+<% if current_user %>
+  <%= link_to "Write a new post", new_post_path %>
+<% end %>
+
+<h4>Users:</h4>
+<ul>
+<% @users.each do |user| %>
+  <li> <%= user.email%> </li>
+<% end %>
+</ul>
