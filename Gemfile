@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'learn-co'
+gem 'learn-test'
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
