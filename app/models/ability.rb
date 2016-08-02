@@ -9,16 +9,17 @@ class Ability
 # Admins can do anything to any post.
 
   def initialize(user)
-    user.can :create, Post
-    user.can :read, Post
+    can :create, Post
+    can :read, Post
  
-    user.can :update, Post, {user_id: user.id}
-    user.can :delete, Post, {user_id: user.id}
+    can :update, Post, {user_id: user.id}
+    can :delete, Post, {user_id: user.id}
     return if user.user?
  
-    user.can :update, Post
+    can :update, Post
     return if user.vip?
  
-    user.can :manage, Post if user.admin?
+    can :manage, Post if user.admin?
+    can :manage, User if user.admin?
   end
 end
