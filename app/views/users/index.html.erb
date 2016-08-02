@@ -1,1 +1,5 @@
-<%= @user.email %>
+<% @users.each do |u| %>
+
+<h2> <%= u.email %></h2>
+
+<% end %>
