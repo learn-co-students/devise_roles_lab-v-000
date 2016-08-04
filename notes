@@ -1,0 +1,25 @@
+1. Run migrations
+
+2. add roles to the user model ( look at specs to tell what roles are expected)
+
+3. add authentication and authorization filters to your users controller. ensure only admin can update and destroy users
+
+4. rails generate devise:views 
+
+--users specs should be passing
+
+5. create a post model and migration. posts - owner and content
+
+6. posts controller
+put enum role: in the model. 
+add them bare to the controller 
+- posts can be created by any user
+-anyone can read post
+-users can edit or delete posts they own
+-vips can edit anyones posts
+-admins can do anything to any post 
+
+
+7. make views for the posts
+
+8. test out the app

@@ -1,3 +1,4 @@
+
 describe PostsController do
   describe '#update' do
     context 'neither admin nor vip' do
@@ -12,7 +13,7 @@ describe PostsController do
           post :update, id: created_post.id, post: { content: 'foo' }
         }.not_to change(created_post, :content)
       end
-    end
+   end
 
     context 'vip' do
       before do
@@ -43,3 +44,5 @@ describe PostsController do
     end
   end
 end
+
+
