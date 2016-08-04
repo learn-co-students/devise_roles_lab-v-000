@@ -1,0 +1,8 @@
+Welcome User
+<%if @user.nil? %>
+  <%= "User Does Not Exist" %>
+<%elsif @user != current_user %>
+  <%= "Access denied."%>
+<%else%>
+  <%= @user.email %>
+<%end%>
