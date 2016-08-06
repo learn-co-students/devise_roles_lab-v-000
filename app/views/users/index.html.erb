@@ -1,0 +1,7 @@
+Welcome
+
+<%if @user.nil? %>
+  Guest!
+<%else%>
+  <%= @user.email %>
+<%end%>
