@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :set_user, only: [:create, :edit, :update, :destroy]
+	before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
   	@users = User.all 
@@ -14,6 +14,14 @@ class UsersController < ApplicationController
     @user.save
   end
 
+  def show
+    @user = User.find(params[:id])
+    if !current_user.admin? || !user_path(current_user.try(:id))
+      flash[:warning] = "Access denied."
+      redirect_to '/'
+    end
+  end
+
   def edit
   end
 
@@ -22,7 +30,7 @@ class UsersController < ApplicationController
   	  @user.update(user_params)
   	  redirect_to @user
   	else
-  	  redirect_to users_path
+  	  redirect_to '/'
   	end
   end
 
@@ -30,9 +38,9 @@ class UsersController < ApplicationController
 
   	if @user.admin?
   	  @user.destroy
-  	  redirect_to users_path
+      redirect_to '/'
   	else
-  	  redirect_to users_path
+  	  redirect_to '/'
   	end
   end
 

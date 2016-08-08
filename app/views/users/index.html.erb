@@ -1,0 +1,12 @@
+Welcome Home Users:<br><br>
+
+<% @users.each do |user| %>
+	<%= user.name %><br>
+	<%= user.email %><br><br>
+<% end %>
+
+<%= link_to "Sign in", user_session_path %><br><br>
+
+<%= link_to "Sign up", new_user_session_path %><br><br>
+
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
