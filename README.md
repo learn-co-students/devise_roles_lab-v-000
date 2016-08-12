@@ -43,8 +43,8 @@ feature and model specs for the `Users` controller to see how to write these.
 3. Write views for your posts.
 4. Try it out!
 
-## References
+## Resources
+* [Devise](https://github.com/plataformatec/devise)
 
-* [Devise]
+* [Lab Review](https://github.com/learn-co-curriculum/rails-video-review-devise-roles-lab)
 
-[Devise]: https://github.com/plataformatec/devise
