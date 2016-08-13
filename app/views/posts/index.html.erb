@@ -1,0 +1,5 @@
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+<%= link_to "Edit registration", edit_user_registration_path(current_user) %>
+
+<%= current_user %>
