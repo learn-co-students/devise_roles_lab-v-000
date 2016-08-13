@@ -1,0 +1,21 @@
+<div>
+Signed out successfully.<br>
+  <h1>Welcome</h1>
+  User signed in?: <%= user_signed_in? %><br />
+  <% if !user_signed_in? %>
+    <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+
+  <% if user_signed_in? %>
+    User name: <%= current_user.name %><br />
+    Email: <%= current_user.email %><br />  
+    User role:<%= User.first.role %><br />
+    ID: <%= current_user.id %><br />
+
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <% end %>
+
+  <br />
+
+  <%= user_session %>
+</div> 
