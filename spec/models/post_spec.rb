@@ -4,4 +4,8 @@ describe Post do
   it 'belongs to a user' do
     expect(Post.new).to respond_to(:user)
   end
+
+  it 'must have content' do
+    #
+  end
 end
