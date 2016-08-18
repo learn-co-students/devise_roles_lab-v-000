@@ -1,0 +1,6 @@
+<% render "layouts/navigation" %>
+
+<h1>Welcome</h1>
+<% if @user %>
+<h3>User: <%= @user.email %></h3>
+<%end %>
