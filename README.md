@@ -44,7 +44,7 @@ feature and model specs for the `Users` controller to see how to write these.
 4. Try it out!
 
 ## Resources
-* [Devise](https://github.com/plataformatec/devise)
+* [Devise](https://www.youtube.com/watch?v=RTXyPhRBQ_4)
 
 * [Lab Review](https://github.com/learn-co-curriculum/rails-video-review-devise-roles-lab)
 
