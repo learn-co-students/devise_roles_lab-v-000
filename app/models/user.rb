@@ -4,5 +4,13 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  enum role: [:user, :vip, :admin]
+  enum role: [:admin, :vip, :user]
+
+after_initialize :set_default_user_role
+
+  def set_default_user_role
+    self.role ||= :user
+  end
+
+
 end
