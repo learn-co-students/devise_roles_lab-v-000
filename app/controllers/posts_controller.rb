@@ -1,7 +1,16 @@
 class PostsController < ApplicationController
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.create(post_params)
+    @post.user = current_user
+    @post.save
+  end
 
   def show
-    @post = find_post
+    @post ||= find_post
   end
 
   def edit
