@@ -13,6 +13,10 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    if params[:id] != current_user.id
+      flash[:alert] = "Access denied."
+      redirect_to '/'
+    end
   end
 
   def edit
@@ -24,10 +28,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(id: params[:id])
-    if current_user.admin?
-      @user.delete
-    end
+    @user = current_user
+    @user.delete if current_user.admin?
   end
 
   def user_params
