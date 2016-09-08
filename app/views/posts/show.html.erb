@@ -1,0 +1,6 @@
+<div class="page-header"><h1>Post</h1></div>
+
+<div class="well well-sm"></div>
+  <h2><%= post.content %></h2>
+  <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-info'%>
+  <%= link_to 'Delete', post_path(post), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
