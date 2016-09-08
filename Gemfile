@@ -1,4 +1,10 @@
 source 'https://rubygems.org'
+
+gem 'pry'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
+gem 'devise'
+gem 'bootstrap-sass'
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
