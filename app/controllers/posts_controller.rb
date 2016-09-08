@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :require_login
-  before_action :set_post, only: [:show, :update, :destroy]
-  #before_action :require_admin, only: :destroy
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @posts = Post.all
@@ -9,6 +9,9 @@ class PostsController < ApplicationController
 
   def show
 
+  end
+
+  def edit
   end
 
   def new
@@ -66,8 +69,8 @@ class PostsController < ApplicationController
     params.require(:post).permit(:content)
   end
 
-  def require_login
-    redirect_to root_path unless !current_user.nil?
-  end
+  #def require_login
+  #  redirect_to root_path unless !current_user.nil?
+  #end
 
 end
