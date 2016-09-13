@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_action :authenticate_user!, except: [:index, :new, :create]
 
   def index
     @users = User.all
@@ -13,7 +13,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+     unless current_user.admin? || current_user == @user
+        redirect_to root_path, alert: "Access denied."
+     end
   end
 
   def update

@@ -1,7 +1,0 @@
-User
-
-<% if current_user.admin? || current_user.id == @user.id %>
-<%= @user.email %>
-<% else %>
-<%= "Access denied." %>
-<% end %>
