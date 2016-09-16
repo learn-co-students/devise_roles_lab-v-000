@@ -9,9 +9,6 @@
 #  updated_at :datetime         not null
 #
 
-FactoryGirl.define do
-  factory :post do
-    content "content"
-    association :user
-  end
+class Post < ActiveRecord::Base
+  belongs_to :user
 end

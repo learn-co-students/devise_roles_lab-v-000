@@ -1,0 +1,8 @@
+<% case %>
+<% when flash[:error] %>
+  <%= content_tag(:div, flash[:error], :id => "flash_error")  %>
+<% when flash[:notice] %>
+  <%= content_tag(:div, flash[:notice], :id => "flash_notice")  %>
+<% when flash[:alert] %>
+  <%= content_tag(:div, flash[:alert], :id => "flash_alert")  %>
+<% end %>
