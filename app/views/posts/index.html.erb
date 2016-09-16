@@ -1,0 +1,15 @@
+<h1>Your Posts</h1>
+
+<% if @posts.present? %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <%= link_to post.content, post_path(post) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h2>It looks like you don't have any posts quite yet.</h2>
+<% end %>
+
+<%= link_to "Create a new post", new_post_path %>
