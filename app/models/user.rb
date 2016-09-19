@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role
 
   def set_default_role
-    role == :user
+    self.role ||= :user
   end
 end

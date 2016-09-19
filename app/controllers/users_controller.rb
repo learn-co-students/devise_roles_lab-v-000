@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   before_action :find_user, except: [:create, :index, :new]
 
   def index
@@ -7,7 +7,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    return head(:forbidden) unless current_user == @user
+    if current_user.id != @user.id
+      redirect_to root_path, :flash => { :error => "Access denied." }
+    end
   end
 
   def update
