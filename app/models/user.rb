@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   enum role: [:user, :vip, :admin]
 
+  has_many :posts
+
   after_initialize :set_default_role
 
   private
