@@ -6,10 +6,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   enum role: [:user, :vip, :admin]
 
-  after_initialize :set_default_role
-
+  after_initialize :set_default_role, if: :new_record?
+  has_many :posts
 
   private
+
+  def admin?
+    self.role.name == "Admin"
+  end
+
   def set_default_role
     self.role ||= :user
   end

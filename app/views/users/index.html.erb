@@ -1,0 +1,5 @@
+<h3>Current Users:</h3>
+
+<ul><% @users.each do |user| %>
+  <li><%= link_to user.email, user %></li>
+<% end %></ul>
