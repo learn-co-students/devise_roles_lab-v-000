@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
   def update
     @post.update!(content: params[:post][:content])
-    redirect_to user_path(id: @user.id)
+    redirect_to
   end
 
   private

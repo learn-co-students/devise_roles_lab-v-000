@@ -1,5 +1,8 @@
 <p>Name: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+<p>Joined on: <%= @joined_on %></p>
+<p>Last logged in on: <%= @last_login %></p>
+<p>No. times logged in: <%= @user.sign_in_count %></p>
 
 <% if @user.posts.any? %>
   <h2>Posts:</h2>
@@ -20,6 +23,3 @@
   <% end %>
 <% end %>
 
-<p><strong>Joined on:</strong>  <%= @joined_on %></p>
-<p><strong>Last logged in on:</strong>  <%= @last_login %></p>
-<p><strong>No. times logged in:</strong>  <%= @user.sign_in_count %></p>

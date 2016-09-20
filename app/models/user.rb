@@ -11,13 +11,8 @@ class User < ActiveRecord::Base
 
   private
 
-  def admin?
-    self.role.name == "Admin"
-  end
-
   def set_default_role
     self.role ||= :user
   end
-
 
 end

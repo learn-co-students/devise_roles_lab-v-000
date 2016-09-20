@@ -2,4 +2,8 @@
 
 <ul><% @users.each do |user| %>
   <li><%= link_to user.email, user %></li>
+  <%= form_for(user) do |f| %>
+    <%= f.select(:role, User.roles.keys.map {|role|[role.titleize, role]}) %>
+    <%= f.submit "Switch Role" %>
+  <% end %>
 <% end %></ul>
