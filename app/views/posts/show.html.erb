@@ -1,0 +1,5 @@
+ <p>A post by <%= @post.user.email %></p>
+  <p><%= @post.content %></p>
+  <% if @user == current_user || current_user.vip? || current_user.admin? %>
+    <%= link_to "Edit", edit_post_path(@post) %>
+  <% end %>
