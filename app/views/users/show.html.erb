@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2>User</h2>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Delete', user_path(@user), method: :destroy, data: { confirm: "Are you sure?" } %> 
+<%= link_to 'Back', users_path %>
