@@ -43,7 +43,6 @@ class UsersController < ApplicationController
 
   def destroy
     user = User.find(params[:id])
-    user.role = 'admin'
     if current_user.try(:admin?) || current_user.id == user.id
       user.delete
       redirect_to root_url
