@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2>User</h2>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+
+<%= link_to "Destroy", admin_destroy_user_path(@user), method: :delete, data: { confirm: "You sure?" } %>
+<%= link_to 'Back', users_path %>
