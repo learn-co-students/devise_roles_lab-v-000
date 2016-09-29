@@ -36,15 +36,15 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy
-    post = Post.find(post_params)
-    if current_user.try(:admin?) || current_user.posts.include?(post)
-      post.delete
-      redirect_to root_url
-    else
-      render "index"
-    end
-  end
+  # def destroy
+  #   post = Post.find(params[:id])
+  #   if current_user.try(:admin?) || current_user.posts.include?(post)
+  #     post.delete
+  #     redirect_to root_url
+  #   else
+  #     render "index"
+  #   end
+  # end
 
   private
 
