@@ -1,0 +1,6 @@
+<h1>Edit Post: </h1>
+
+<%=form_for(@post) do |f|%>
+<%=f.text_field :content, :value => @post.content %>
+<%=f.submit "Update Post" %>
+<% end %>
