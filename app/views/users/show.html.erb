@@ -1,0 +1,5 @@
+<%= render '/layouts/messages' %>
+<h1>User</h1>
+<h1> Welcome, <%=current_user.email%></h1>
+
+<%=link_to("Sign out", destroy_user_session_path(@user), method: :delete ) %>

@@ -1,0 +1,6 @@
+<%@posts.each do |post| %>
+<%=  post.content %><br>
+<% end %>
+<br>
+<br> 
+<%=link_to("Add new post", new_post_path) %>
