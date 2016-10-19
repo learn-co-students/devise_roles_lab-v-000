@@ -12,10 +12,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    binding.pry
-    @user = User.find(params[:id])
-    if current_user.id == @user.id
-      redirect_to "/users/'#{current_user.id}'"
+    @user = User.find_by(id: params[:id])
+    if @user.id == current_user.id
+      redirect_to users_path(@user)
+    else
+      redirect_to users_path, :alert => "Access denied."
     end
   end
 
