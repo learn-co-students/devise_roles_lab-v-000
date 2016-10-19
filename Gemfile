@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'cancancan'
+gem 'pry'
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
