@@ -1,0 +1,7 @@
+
+<h1>Welcome</h1>
+
+<% @users.each do |user| %>
+<h3><%= user.role.titleize %>:</h3>
+  <h3><%= user.email %></h3>
+<% end %>
