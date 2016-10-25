@@ -1,10 +1,10 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
-      t.string :owner
-      t.text :content
-
-      t.timestamps null: false
+     t.integer  "user_id"
+     t.string   "content"
+     t.datetime "created_at", null: false
+     t.datetime "updated_at", null: false
     end
   end
 end
