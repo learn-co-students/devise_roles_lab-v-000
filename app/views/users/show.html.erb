@@ -1,0 +1,6 @@
+<% if current_user.try(:id) == @user.id %>
+  <p><%= @user.name %></p>
+  <p><%= @user.email %></p>
+<% else %>
+  <p>Access denied.</p>
+<% end %>
