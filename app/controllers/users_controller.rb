@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def show
     unless current_user.admin? || current_user = @user 
-      redirect_to :back, :alert => "Sorry, you are not authorized to view this page."
+      redirect_to '/', :alert => "Access denied."
     end 
   end 
   
