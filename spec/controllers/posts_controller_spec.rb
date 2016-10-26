@@ -42,4 +42,48 @@ describe PostsController do
       end
     end
   end
+
+  describe '#destroy' do
+    let!(:user) { FactoryGirl.create(:user) }
+    let!(:post) { FactoryGirl.create(:post) }
+
+    context 'neither admin nor vip' do
+
+      before do
+        sign_in!
+      end
+
+      it 'does not allow the request' do
+        expect {
+          delete :destroy, id: post.id
+        }.not_to change(Post, :count)
+      end
+    end
+
+    context 'vip' do
+
+      before do
+        sign_in!('vip')
+      end
+
+      it 'does not allow the request' do
+        expect {
+          delete :destroy, id: post.id
+        }.not_to change(Post, :count)
+      end
+    end
+
+    context 'admin' do
+
+      before do
+        sign_in!('admin')
+      end
+
+      it 'allows the request' do
+        expect {
+          delete :destroy, id: user.id
+        }.to change(Post, :count).by(-1)
+      end
+    end
+  end
 end
