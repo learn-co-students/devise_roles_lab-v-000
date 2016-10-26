@@ -1,0 +1,6 @@
+<p><%= @post.user.try(:name) || @post.user.try(:email) || "User" %> wrote:</p>
+<p><%= @post.content %></p>
+
+<p><%= link_to 'Edit post', edit_post_path(@post) %></p>
+
+<p><%= link_to 'Delete post', post_path(@post), :method => :delete %></p>
