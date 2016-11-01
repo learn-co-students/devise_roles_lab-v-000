@@ -4,12 +4,11 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'devise'
+gem 'devise', '4.0.0'
 gem 'high_voltage'
 gem 'sqlite3'
 
 group :development do
-  gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'web-console'
