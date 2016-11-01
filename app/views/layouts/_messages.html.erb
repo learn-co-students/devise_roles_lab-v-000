@@ -2,11 +2,9 @@
 
   <% if msg.class == Array %>
     <% msg.each do |message| %>
-      <%= content_tag :div, message, :id => "flash_#{name}" %>
+      <%= content_tag :div, message, class: "flash_#{name}" %>
     <% end %>
   <% else %>
-
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-
+    <%= content_tag :div, msg, class: "flash_#{name}" %>
   <% end %>
 <% end %>
