@@ -11,9 +11,11 @@
   <body>
     <header>
       <%= render 'layouts/navigation' %>
+      <%= current_user.email if signed_in? %>
     </header>
     <main role="main">
       <%= render 'layouts/messages' %>
+
       <%= yield %>
     </main>
   </body>
