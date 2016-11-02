@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :rememberable, :validatable
   enum role: [:user, :vip, :admin]
+
+  after_initialize :set_default_role_user
+
+  def set_default_role_user
+    @role = :user
+  end
 end
