@@ -1,0 +1,5 @@
+<%= @post.content %>
+
+<% if current_user == @post.user || current_user.admin? %>
+  <%= button_to "Delete", post_path(@post), :method => 'delete' %>
+<% end %>
