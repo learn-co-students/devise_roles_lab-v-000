@@ -42,4 +42,43 @@ describe PostsController do
       end
     end
   end
+
+  describe '#create' do
+    context 'neither admin nor vip' do
+      before do
+        sign_in!
+      end
+
+      it 'allows the request' do
+        created_post = create(:post, content: 'bar')
+
+        expect(created_post.reload.content).to eq('bar')
+      end
+    end
+
+    context 'vip' do
+      before do
+        sign_in!('vip')
+      end
+
+      it 'allows the request' do
+        created_post = create(:post, content: 'bar')
+
+
+        expect(created_post.reload.content).to eq('bar')
+      end
+    end
+
+    context 'admin' do
+      before do
+        sign_in!('admin')
+      end
+
+      it 'allows the request' do
+        created_post = create(:post, content: 'bar')
+
+        expect(created_post.reload.content).to eq('bar')
+      end
+    end
+  end
 end
