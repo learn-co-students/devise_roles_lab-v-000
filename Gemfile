@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+  gem 'pry'
+  
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
@@ -13,6 +16,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'web-console'
+
 end
 
 group :development, :test do
