@@ -1,0 +1,11 @@
+<h1><%= @user.name %>'s Profile Page</h1>
+
+<p>Email: <%= @user.email %></p>
+
+<% if @user == current_user %>
+  <%= link_to "New Post", new_post_path %>
+<% end %>
+
+<% if @user.posts %>
+  <%= render partial: 'posts/post', collection: @user.posts, as: :post %>
+<% end %>
