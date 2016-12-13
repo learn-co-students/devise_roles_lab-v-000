@@ -1,4 +1,5 @@
-<%= render partial: 'post', locals: { post: @post } %>
+<p><%= @post.content %></p>
+<p>Written by: <%= link_to @post.user.email, user_path(@post.user) %></p>
 
 <% if @post.user == current_user || current_user.vip? || current_user.admin? %>
   <%= link_to "Edit Post", edit_post_path(@post) %>
