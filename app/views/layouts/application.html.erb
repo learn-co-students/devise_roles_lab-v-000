@@ -10,7 +10,9 @@
   </head>
   <body>
     <header>
-      <%= render 'layouts/navigation' %>
+      <% if current_user.guest? %>
+        <%= render 'layouts/navigation' %>
+      <% end %>
     </header>
     <main role="main">
       <%= render 'layouts/messages' %>
