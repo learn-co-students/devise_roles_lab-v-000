@@ -1,0 +1,10 @@
+ 
+
+<%= @user.name %>
+<%= @user.email %>
+
+
+
+  <% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+  <% end %>

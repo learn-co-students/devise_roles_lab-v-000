@@ -7,7 +7,7 @@ describe PostsController do
 
       it 'does not allow the request' do
         created_post = create(:post, content: 'bar')
-
+        
         expect {
           post :update, id: created_post.id, post: { content: 'foo' }
         }.not_to change(created_post, :content)
