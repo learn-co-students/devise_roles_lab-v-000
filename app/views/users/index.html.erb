@@ -1,0 +1,8 @@
+<p><h3>Welcome</h3><%= current_user.email if !current_user.nil? %></p>
+<% @users.each do |u| %>
+  <ul>
+    <li>
+      <%= u.email %> : <%= link_to "view profile", user_path(u) %>
+    </li>
+  </ul>
+<% end %>

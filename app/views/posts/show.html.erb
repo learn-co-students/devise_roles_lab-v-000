@@ -1,0 +1,4 @@
+<h1>Content:</h1><br></br>
+<%= @post.content %><br>
+<h3>By:</h3><%= current_user.name %> [<%= current_user.email %>]
+<%= link_to "Edit Post", edit_post_path(@post) %><br></br>

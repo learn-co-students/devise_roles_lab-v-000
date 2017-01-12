@@ -1,0 +1,6 @@
+<h1>Posts:</h1><br></br>
+<% @posts.each do |p| %>
+<ul>
+  <li><%= p.content %> <%= render partial: 'user_rendering', locals: {post: p} %></li></br>
+</ul>
+<% end %>
