@@ -1,0 +1,8 @@
+<%= link_to "Edit account info", edit_user_registration_path %> || <%= link_to "Create post", new_post_path %><br></br>
+<h1>User:</h1><%= current_user.email %><br></br>
+<h2>Posts:</h2>
+<% current_user.posts.each do |p| %>
+  <ul>
+    <li><%= p.content %> <%= link_to "View Post", post_path(p) %></li>
+  </ul>
+<% end %>
