@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+  <%= link_to user.email, user %>
+  <%= form_for(user) do |f| %>
+    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+    <%= f.submit 'Change Role', :class => 'button-xs' %>
+  <% end %>
+  <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') if current_user.role == 'admin' %>
+<% end %>
