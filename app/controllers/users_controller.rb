@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:create, :new]
+  before_action :authenticate_user!, except: [:create, :new, :index]
+
   def new
   end
 
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     unless current_user.admin?
       unless @user == current_user
         redirect_to :back, :alert => "Access denied."
