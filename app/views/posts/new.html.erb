@@ -1,0 +1,6 @@
+<%= form_for(@post) do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
