@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_user!, only: [:edit, :update]
-  before_action :get_post, only: [:edit, :show, :update]
+  before_action :get_post, only: [:edit, :show, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -34,12 +34,15 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.destroy
+
+    redirect_to posts_path, :notice => "Post has been destroyed"
   end
 
   private
 
   def authorize_user!
-    raise "You are not authorized to view this page!" unless current_user
+    raise "You are not authorized" unless current_user
 
     unless current_user == @post.user || current_user.vip? || current_user.admin?
       redirect_to post_path(id: @post.id), :alert => "Access denied."
