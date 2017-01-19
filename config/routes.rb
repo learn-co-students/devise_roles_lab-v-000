@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-
-  root to: 'users#index'
-
+  get '/signin' => 'devise/sessions#new'
+  root to: 'visitors#index'
+  resources :posts
   resources :users
+
 end
