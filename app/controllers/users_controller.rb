@@ -18,10 +18,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    unless current_user.admin?
-      unless @user == current_user
-        redirect_to :back, :alert => "Access denied."
-      end
+    unless @user == current_user
+      redirect_to :back, :alert => "Access denied."
     end
   end
 
@@ -35,7 +33,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path, :notice => "Signed out successfully."
+    redirect_to users_path, :notice => "User deleted."
   end
 
   private

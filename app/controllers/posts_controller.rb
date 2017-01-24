@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_post!, only: [:edit, :show, :update]
   before_action :authorize_user!, only: [:edit, :update]
 
@@ -15,6 +14,10 @@ class PostsController < ApplicationController
   end
 
   def edit
+  end
+
+  def index
+    @posts = Post.all
   end
 
   def show
