@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   def create
     @user = User.find_or_initialize_by(email: params[:email])
     @user.update(password: params[:password])
-
     redirect_to user_path(@user)
   end
 

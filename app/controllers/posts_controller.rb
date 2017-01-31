@@ -15,6 +15,9 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def show
+  end
+
   def update
     @post.update!(content: params[:post][:content])
     redirect_to post_path(@post)
