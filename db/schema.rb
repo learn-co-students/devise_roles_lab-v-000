@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170202152030) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "role"
+    t.integer  "role",                   default: 0
     t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
