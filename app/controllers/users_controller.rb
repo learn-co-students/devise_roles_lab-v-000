@@ -6,4 +6,12 @@ class UsersController < ApplicationController
     user.destroy
     redirect_to root_path
   end
+
+  def index
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render plain: "Access denied." unless current_user == @user
+  end
 end
