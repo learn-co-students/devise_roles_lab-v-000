@@ -6,6 +6,7 @@ describe PostsController do
       end
 
       it 'does not allow the request' do
+        
         created_post = create(:post, content: 'bar')
 
         expect {
