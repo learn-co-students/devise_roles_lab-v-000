@@ -4,10 +4,16 @@ class UsersController < ApplicationController
 
   end
 
+  def index
+    
+  end
+
+
+
   def destroy
     @user = User.find_by(params[:id])
 
-    return head(:forbidden) unless  @user.admin?
+    return head(:forbidden) unless @user.admin?
     # binding.pry
     @user = User.find_by(params[:id]).destroy
 
