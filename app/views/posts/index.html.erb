@@ -1,0 +1,11 @@
+<h1>All Posts</h1>
+
+<% @posts.each do |p| %>
+  ID: <%= link_to p.id, p %>
+
+  <% if p.user == current_user %>
+    <b>Your Post</b>
+  <% end %>
+
+  <p><%= p.content %></p>
+<% end %>

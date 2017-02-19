@@ -42,4 +42,57 @@ describe PostsController do
       end
     end
   end
+
+  describe '#create' do
+    context 'user' do
+      before do
+        sign_in!
+      end
+      it 'can create a post' do
+        created_post = create(:post, content: 'william')
+
+        expect(Post.last).to eql created_post
+      end
+    end
+
+    context 'vip' do
+      before do
+        sign_in!('vip')
+      end
+      it 'can create a post' do
+        created_post = create(:post, content: 'william')
+
+        expect(Post.last).to eql created_post
+      end
+    end
+
+    context 'admin' do
+      before do
+        sign_in!('admin')
+      end
+      it 'can create a post' do
+        created_post = create(:post, content: 'william')
+
+        expect(Post.last).to eql created_post
+      end
+    end
+  end
+
+  describe 'Reading Posts' do
+    context 'user' do
+      before do
+        sign_in!
+      end
+      it 'can read any post' do
+        post = create(:post, content: "william is amazing.")
+
+        redirect_to post_url(post)
+        expect(response).to have_content post.content
+
+      end
+    end
+  end
+
+
 end
+
