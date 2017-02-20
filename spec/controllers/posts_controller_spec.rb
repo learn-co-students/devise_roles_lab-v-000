@@ -78,17 +78,65 @@ describe PostsController do
     end
   end
 
-  describe 'Reading Posts' do
+  describe 'Edit and Delete Posts' do
     context 'user' do
       before do
         sign_in!
       end
-      it 'can read any post' do
-        post = create(:post, content: "william is amazing.")
+      it 'can edit their own posts' do
+        created_post = create(:post, content: 'william is amazing.')
 
-        redirect_to post_url(post)
-        expect(response).to have_content post.content
+        post :update, id: created_post.id, post: { content: 'foo' }
+        expect(created_post.reload.content).to eq('foo')
+      end
+      it 'can delete their own posts' do
+        created_post = create(:post, content: 'william is amazing.')
 
+        # post :destroy, id: created_post.id
+        # expect(created_post.reload.content).to eq(nil)
+        expect{
+          post :destroy, id: created_post.id
+          }.to change(Post, :count).by(-1)
+      end
+    end
+    context 'vip' do
+      before do
+        sign_in!('vip')
+      end
+      it 'can edit their own posts' do
+        created_post = create(:post, content: 'william is amazing.')
+
+        post :update, id: created_post.id, post: { content: 'foo' }
+        expect(created_post.reload.content).to eq('foo')
+      end
+      it 'can delete their own posts' do
+        created_post = create(:post, content: 'william is amazing.')
+
+        # post :destroy, id: created_post.id
+        # expect(created_post.reload.content).to eq(nil)
+        expect{
+          post :destroy, id: created_post.id
+          }.to change(Post, :count).by(-1)
+      end
+    end
+    context 'admin' do
+      before do
+        sign_in!('admin')
+      end
+      it 'can edit their own posts' do
+        created_post = create(:post, content: 'william is amazing.')
+
+        post :update, id: created_post.id, post: { content: 'foo' }
+        expect(created_post.reload.content).to eq('foo')
+      end
+      it 'can delete their own posts' do
+        created_post = create(:post, content: 'william is amazing.')
+
+        # post :destroy, id: created_post.id
+        # expect(created_post.reload.content).to eq(nil)
+        expect{
+          post :destroy, id: created_post.id
+          }.to change(Post, :count).by(-1)
       end
     end
   end
