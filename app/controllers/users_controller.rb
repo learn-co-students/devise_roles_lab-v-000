@@ -26,17 +26,18 @@ class UsersController < ApplicationController
     end
   end
 
-	def update(user_params)
-		return head(:forbidden) unless current_user.admin?
-		@user.update(user_params)
-	end
+  def update
+    if @user.update_attributes(secure_params)
+      redirect_to users_path, :notice => "User updated."
+    else
+      redirect_to users_path, :alert => "Unable to update user."
+    end
+  end
 
-	def destroy
-		return head(:forbidden) unless current_user.admin?
-		@user = User.find_by(id: params[:id])
-		@user.destroy
-		redirect_to root_path
-	end
+  def destroy
+    @user.destroy
+    redirect_to users_path, :notice => "User deleted."
+  end
 
 	private
 
