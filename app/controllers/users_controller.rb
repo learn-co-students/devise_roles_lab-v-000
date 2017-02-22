@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, except: [:create, :new]
+  before_action :authenticate_user!, except: [:create, :new, :index]
   before_action :set_user!, except: [:create, :index, :new]
   before_action :admin_only, only: :destroy
 
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    render 'visitors/index' if current_user.nil?
     @users = User.all
   end
 
