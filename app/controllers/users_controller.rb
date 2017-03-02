@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   private
   def admin_only
     unless current_user.admin? || @user == current_user
-      redirect_to users_path, notice: "You do not have access"
+      redirect_to users_path, notice: "Access denied."
     end
   end
 

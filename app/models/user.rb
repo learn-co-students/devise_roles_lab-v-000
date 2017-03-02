@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   enum role: [:user, :vip, :admin]
 
-  after_initialize :default_role
+  after_initialize :primary_role
 
-  def default_role
+  def primary_role
     self.role ||= :user
   end
 end
