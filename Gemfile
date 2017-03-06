@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'pry-rails'
+gem 'learn-co'
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
