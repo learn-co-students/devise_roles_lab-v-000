@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    binding.pry
+    @user = current_user
   end
-  
+
   def show
     if !current_user.admin? && current_user != @user
         flash[:alert] = "Access denied."
@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # return head(:forbidden) unless current_user.admin?
     if current_user.admin? || current_user = @user
         @user.update(user_params)
         redirect_to root_path

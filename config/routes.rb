@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'users#index'
   post 'destroy' => 'users#destroy'
-  # resources :posts
   post 'create' => 'posts#create'
   post 'update' => 'posts#update'
 
   resources :users
+  resources :posts
 end
