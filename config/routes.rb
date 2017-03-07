@@ -4,4 +4,12 @@ Rails.application.routes.draw do
   root to: 'users#index'
 
   resources :users
+  resources :posts 
+
+  devise_scope :user do
+    get '/signout' => 'devise/sessions#destroy'
+  end
+
+
+
 end
