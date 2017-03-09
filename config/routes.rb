@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'users#index'
+  root to: 'visitors#index'
 
-  resources :users
+  #resources :users
+  scope "/admin" do
+    resources :users, except: [:show]
+  end
+
+  get 'users/:id', to: 'users#show', as: "user_page"
+
+  resources :posts
 end

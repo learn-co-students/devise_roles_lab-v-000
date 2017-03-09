@@ -1,0 +1,6 @@
+<h1>Hello From Users Controller! (For Admins)</h1>
+<ul>
+<% @users.each do |user| %>
+  <li><%= link_to user.email, user_page_path(user) %></li>
+<% end %>
+</ul>
