@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
 	before_action :set_post, only: [:edit, :update, :destroy, :show]
 
+	before_action :authenticate_user!
+
 	def index
 		@posts = Post.all
 	end
@@ -29,18 +31,28 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		# set_post
-		if @post.update(post_params)
-			redirect_to post_path(@post), notice: "Update completed"
+		if current_user.admin? || current_user.vip?
+			# set_post
+			if @post.update(post_params)
+				redirect_to post_path(@post), notice: "Update completed"
+			else
+				render :edit
+			end			
 		else
-			render :edit
+			return head(:forbidden)
+			redirect_to root_path
 		end
+
 	end
 
 
 	def destroy
-		# set_post
-		@post.destroy
+		if current_user.admin?
+			# set_post
+			@post.destroy
+		else
+			return head(:forbidden)
+		end	
 		redirect_to root_path
 	end
 
