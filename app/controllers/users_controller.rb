@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin, only: [:update, :destroy]
+  before_action :check_user_permissions, only: [:show]
 
   # GET /users
   def index
@@ -39,7 +41,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
-    @user.destroy if current_user.admin?
+    @user.destroy
     redirect_to root_path
   end
 
@@ -50,6 +52,12 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params[:user]
+    params.require(:user).permit(:email, :password)
+  end
+
+  def check_user_permissions
+    unless @user == current_user || current_user.vip? || current_user.admin?
+      redirect_to root_path, alert: 'Access denied.'
+    end
   end
 end
