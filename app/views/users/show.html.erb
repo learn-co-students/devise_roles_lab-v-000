@@ -1,0 +1,10 @@
+<h1>Welcome</h1>
+<h3><%= @user.name %></h3>
+<h3><%= @user.email %></h3>
+
+<%= link_to "Add a new post", new_post_path %>
+
+<h2>Posts</h2>
+<% @user.posts.each do |post| %>
+  <%= post.content %>
+<% end %>
