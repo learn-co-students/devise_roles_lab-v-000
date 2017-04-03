@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :post do
-    content "content"
-    association :user
+    content "MyText"
+    user_id 1
   end
 end
