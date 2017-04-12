@@ -34,15 +34,24 @@ class UsersController < ApplicationController
     end
     def show
         @user = User.find(params[:id])
+
+        if !user_can_view?
+            flash[:error] = "Access denied."
+            redirect_to users_path
+        end
     end    
 
     private
     def user_can_edit?
         current_user.admin? || current_user.vip? || current_user.id == @user.id
     end
+    def user_can_view?
+        current_user.admin? || current_user.vip? || current_user.id == @user.id
+    end
     def user_can_delete?
         current_user.admin?
     end
+
 
     def user_params
         params.require(:user).permit(:content) 
