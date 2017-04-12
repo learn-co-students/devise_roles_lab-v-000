@@ -1,0 +1,16 @@
+<h1><%= @user.name %>'s Profile</h1>
+<table>
+   
+    <tr>
+        <th>email</th>
+        <td><%=@user.email%></td>
+        <td></td>
+    </tr>
+   <% @user.posts.each do |post| %>
+   <tr>
+       <th>post</th>
+       <td><%=post.content%></td>
+       <td><%=post.created_at %></td>
+   </tr>
+    <% end %> 
+</table>

@@ -1,0 +1,7 @@
+<h1>Posts</h1>
+<ul>
+   <% @posts.each do |post| %>
+    <li><%=post.user_name%>: <%=post.content%> <%= link_to "(edit)", edit_post_path(post) if post.user == current_user %> <%= link_to "(delete)", post_path(post), :method => "DELETE" if post.user == current_user %></li>
+    <% end %>
+</ul>
+<%= link_to "New Post", new_post_path %>
