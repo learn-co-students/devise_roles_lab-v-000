@@ -1,0 +1,6 @@
+
+<h3><%= "Logged in as #{current_user.name}" unless current_user.nil? %></h3>
+
+<%= link_to("Sign out", destroy_user_session_path, method: :delete) %>
+<%= link_to("Sign up", new_user_registration_path) %>
+<%= link_to("Home", root_path) %>
