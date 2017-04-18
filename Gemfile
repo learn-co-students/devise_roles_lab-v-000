@@ -9,13 +9,15 @@ gem 'high_voltage'
 gem 'sqlite3'
 
 group :development do
-  gem 'better_errors'
+
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'web-console'
 end
 
 group :development, :test do
+  gem 'pry'
+  gem 'rb-readline', '~> 0.5.4'
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'faker'
