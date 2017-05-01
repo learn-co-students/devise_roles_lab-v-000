@@ -1,0 +1,10 @@
+<h1>User show page <%= @user.name %></h1>
+
+<%= link_to "Delete User", users_path, method: 'delete' if current_user.role == "admin" %>
+
+<h2>Email</h2>
+<%= @user.email %>
+
+<h2>Role</h2>
+
+<%= @user.role %>

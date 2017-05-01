@@ -1,0 +1,15 @@
+<%= link_to "Home", root_path %>
+
+<% if !current_user %>
+
+  <%= link_to "Sign in", new_user_session_path %>
+  <%= link_to "Sign up", new_user_registration_path %>
+
+<% else %>
+
+  <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
+  <strong>Email:</strong> <span><%= current_user.email %></span>
+  <%= link_to "Create post", new_post_path %>
+
+
+<% end %>
