@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-
-  before_action :set_user, except: [:index, :new, :create]
+  before_action :set_user, except: [:index, :new, :create ]
 
   def index
     @users = User.all
@@ -19,6 +18,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
   end
 
+
   def destroy
     if current_user.admin? && current_user = @user
       @user = User.find(params[:id])
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
       redirect_to root_path, :alert => "Access denied."
     end
   end
+
 
   private
 
