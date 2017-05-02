@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create ]
-  before_action :set_user, except: [:index, :new, :create ]
+
+  before_action :set_user, except: [:index, :new, :create]
 
   def index
     @users = User.all
@@ -8,8 +8,7 @@ class UsersController < ApplicationController
 
   def show
     if !current_user.admin? && current_user != @user
-      flash[:alert] = "Access denied."
-      redirect_to root_path
+      redirect_to root_path, :alert => "Access denied."
     end
   end
 
@@ -21,14 +20,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if !current_user.admin? && current_user != @user
-      flash[:alert] = "Access denied."
-      redirect_to root_path
-    else
+    if current_user.admin? && current_user = @user
       @user = User.find(params[:id])
-        @user.destroy
-      
-
+      @user.destroy
+    else
+      redirect_to root_path, :alert => "Access denied."
     end
   end
 
