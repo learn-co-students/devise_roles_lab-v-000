@@ -23,7 +23,6 @@ class UsersController < ApplicationController
     if current_user.admin? && current_user = @user
       @user = User.find(params[:id])
       @user.destroy
-    else
       redirect_to root_path, :alert => "Access denied."
     end
   end
