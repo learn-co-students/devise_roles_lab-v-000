@@ -14,6 +14,20 @@ describe PostsController do
       end
     end
 
+    context 'owner' do
+      before do
+        sign_in!
+      end
+
+      it 'allows the request' do
+        created_post = create(:post, content: 'bar')
+
+        post :update, id: created_post.id, post: { content: 'foo' }
+
+        expect(created_post.reload.content).to eq('foo')
+      end
+    end
+
     context 'vip' do
       before do
         sign_in!('vip')
@@ -41,5 +55,6 @@ describe PostsController do
         expect(created_post.reload.content).to eq('foo')
       end
     end
+
   end
 end
