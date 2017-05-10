@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'users#index'
 
-  resources :users
   resources :posts
+  resources :users, only: [:index, :show, :destroy]
+
+  get '/goodbye' => 'application#goodbye'
 end

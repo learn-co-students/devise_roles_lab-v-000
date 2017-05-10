@@ -21,6 +21,7 @@ describe PostsController do
 
       it 'allows the request' do
         created_post = create(:post, content: 'bar')
+        created_post.update(user_id: 1)
 
         post :update, id: created_post.id, post: { content: 'foo' }
 

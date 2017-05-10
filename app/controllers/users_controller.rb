@@ -2,15 +2,15 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    return redirect_to root_path unless current_user.admin?
+    @user = current_user
   end
 
   def create
-    return redirect_to root_path unless current_user.admin?
+
   end
 
   def new
-    return redirect_to root_path unless current_user.admin?
+
   end
 
   def edit
@@ -18,7 +18,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    return redirect_to root_path unless current_user.admin?
+    @user = User.find_by(id: params[:id])
+    if @user == current_user
+      :show
+    else
+      flash[:error]= "Access denied."
+      redirect_to root_path
+    end
   end
 
   def update
