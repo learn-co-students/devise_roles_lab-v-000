@@ -42,4 +42,70 @@ describe PostsController do
       end
     end
   end
+
+  describe '#destroy' do
+    context 'does not allow vip' do
+      let!(:user) { create(:user) }
+
+      before do
+        sign_in!('vip')
+      end
+
+      it 'does not allow the request' do
+        created_post = create(:post, content: 'bar')
+
+        expect {
+          delete :destroy, id: created_post.id
+        }.not_to change(Post, :count)
+      end
+    end
+
+    context 'does not allow non post owner' do
+      let!(:user) { create(:user) }
+
+      before do
+        sign_in!
+      end
+
+      it 'does not allow the request' do
+        created_post = create(:post, content: 'bar')
+
+        expect {
+          delete :destroy, id: created_post.id
+        }.not_to change(Post, :count)
+      end
+    end
+    
+    context 'admin' do
+      let!(:user) { create(:user) }
+
+      before do
+        sign_in!('admin')
+      end
+
+      it 'allows the request' do
+        created_post = create(:post, content: 'bar')
+
+        expect {
+          delete :destroy, id: created_post.id
+        }.to change(Post, :count)
+      end
+    end
+    context 'post owner' do
+      let!(:user) { create(:user) }
+
+      before do
+        sign_in!
+      end
+
+      it 'allows the request' do
+        created_post = create(:post, content: 'bar', user_id: 2)
+
+        expect {
+          delete :destroy, id: created_post.id
+        }.to change(Post, :count)
+      end
+    end
+  end
+
 end
