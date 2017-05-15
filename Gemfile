@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'high_voltage'
 gem 'sqlite3'
+gem 'pry'
 
 
 group :development do
@@ -14,7 +15,6 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'web-console'
-  gem 'pry'
 end
 
 group :development, :test do
