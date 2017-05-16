@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:create, :update, :show]
+  before_action :find_post, only: [:create, :update, :show, :edit]
 
   def index
     @posts = Post.all
@@ -11,7 +11,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    redirect_to post_path
+    @post.save
+    redirect_to post_path(@post)
   end
 
   def update
