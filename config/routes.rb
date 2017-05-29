@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: 'users#index'
 
   resources :users
+  resources :posts
+  post '/posts/:id/edit', to: 'posts#update'
 end
