@@ -18,6 +18,7 @@ feature 'User edit', :devise do
   scenario 'user changes email address' do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
+    binding.pry
     visit edit_user_registration_path(user)
     fill_in 'Email', :with => 'newemail@example.com'
     fill_in 'Current password', :with => user.password
