@@ -5,3 +5,5 @@ describe Post do
     expect(Post.new).to respond_to(:user)
   end
 end
+
+
