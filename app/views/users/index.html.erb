@@ -1,0 +1,15 @@
+<h1>Welcome,
+
+  <% if !current_user %>
+
+    <%= "Stranger" %><br><br>
+
+    <%= "Please "%><%= link_to "sign up", new_user_path%><%= " or " %><%= link_to "sign in", new_user_session_path %><%= "!" %>
+
+  <% else %>
+
+    <%= current_user.email %>
+
+  <% end %>
+
+</h1>
