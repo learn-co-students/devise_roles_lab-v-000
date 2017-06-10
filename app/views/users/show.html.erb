@@ -1,0 +1,11 @@
+<div>
+	<h2>Name :</h2>
+	<%= @user.name%>
+	
+</div>
+<div>
+	<h2>Email :</h2>
+	<%= @user.email%>
+</div> 
+
+<%= link_to 'Delete user',  { action: :destroy, id: @user.id }, method: :delete, data: { confirm: 'Are you sure?' } %>

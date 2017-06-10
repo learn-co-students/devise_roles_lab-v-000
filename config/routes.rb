@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'users#index'
 
+	resources :posts
+
+ 	delete '/users/:id' => 'users#destroy'
   resources :users
 end
