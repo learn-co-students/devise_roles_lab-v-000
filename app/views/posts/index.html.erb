@@ -1,0 +1,11 @@
+
+    <% @posts.each do |post| %>
+        <div>
+            <%= post.content %> - Written by <%= User.find(post.user_id).email %>
+                <%= link_to "Edit", edit_post_path(post) if post.user == current_user || current_user.admin? || current_user.vip? %>
+                <%= link_to "Delete", post_path(post), :method => :delete if post.user == current_user || current_user.admin? %>
+        </div><br>
+    <% end %>
+
+<br><br>
+<%= render 'form', post: Post.new %>
