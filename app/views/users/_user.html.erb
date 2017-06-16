@@ -1,0 +1,16 @@
+<div class="user__item">
+  <%= link_to user.email, user %>
+</div>
+
+<div class="user__item">
+  <%= form_for(user) do |f| %>
+    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+    <%= f.submit 'Change Role' %>
+  <% end %>
+</div>
+
+<div class="user__item">
+  <% if current_user.role == 'admin' %>
+    <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete,) %>
+  <% end %>
+</div>
