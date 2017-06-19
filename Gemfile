@@ -7,6 +7,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'high_voltage'
 gem 'sqlite3'
+gem 'pry'
+gem 'cancancan'
 
 group :development do
   gem 'better_errors'
@@ -17,7 +19,7 @@ end
 
 group :development, :test do
   gem 'byebug'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', :require => false
   gem 'faker'
   gem 'rspec-rails'
 end
