@@ -22,7 +22,7 @@ Provided is a Rails skeleton with the [Devise](https://github.com/plataformatec/
 
 1. Run the migrations. A basic User model and migrations have been set up for you as part of the devise install.
 2. Add roles to the user model. The specs will tell you what roles are expected of the model.
-3. Add authentication and authorization filters to your users controller. Ensure that only administrators can update or destroy users.
+3. Create a users controller, and add authentication and authorization filters to it. Ensure that only administrators can update or destroy users.
 4. Run `rails generate devise:views` to generate the views.
 
 Once you've reached this point, all the `User` specs should be passing. For the
@@ -46,5 +46,5 @@ feature and model specs for the `Users` controller to see how to write these.
 ## Resources
 * [Devise](https://www.youtube.com/watch?v=RTXyPhRBQ_4)
 
-* [Lab Review](https://github.com/learn-co-curriculum/rails-video-review-devise-roles-lab)
+* [Lab Review](https://www.youtube.com/watch?v=RTXyPhRBQ_4)
 
