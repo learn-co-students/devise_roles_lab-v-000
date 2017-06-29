@@ -44,7 +44,4 @@ feature and model specs for the `Users` controller to see how to write these.
 4. Try it out!
 
 ## Resources
-* [Devise](https://www.youtube.com/watch?v=RTXyPhRBQ_4)
-
 * [Lab Review](https://www.youtube.com/watch?v=RTXyPhRBQ_4)
-
