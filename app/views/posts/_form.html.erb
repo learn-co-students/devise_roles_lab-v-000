@@ -1,0 +1,7 @@
+<%= form_for(post) do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.hidden_field :user_id, :value => post.user_id %>
+
+  <%= f.submit %>
+<% end %>
