@@ -1,3 +1,5 @@
+require 'pry'
+
 describe PostsController do
   describe '#update' do
     context 'neither admin nor vip' do
