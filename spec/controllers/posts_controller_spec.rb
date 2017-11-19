@@ -2,10 +2,13 @@ describe PostsController do
   describe '#update' do
     context 'neither admin nor vip' do
       before do
+        # binding.pry
         sign_in!
+
       end
 
       it 'does not allow the request' do
+        # binding.pry
         created_post = create(:post, content: 'bar')
 
         expect {
