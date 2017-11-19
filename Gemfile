@@ -16,6 +16,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'rails-pry'
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'faker'
