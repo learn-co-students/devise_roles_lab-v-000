@@ -1,0 +1,7 @@
+users/index <br>
+<h1>Welcome to the Index Page</h1>
+<ul>
+<% @users.each do |user| %>
+  <li><%= user.name %> - <%= user.email %></li>
+<% end %>
+</ul>
