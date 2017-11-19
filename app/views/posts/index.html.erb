@@ -1,0 +1,14 @@
+<% if @posts %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <%= link_to post.content, post_path(post) %> - 
+        <%= link_to post.user.email, user_path(post.user) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No posts here!</p>
+<% end %>
+
+<%= link_to "Create Post", new_post_path %>
