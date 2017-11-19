@@ -1,0 +1,8 @@
+<h1>User  <%= @user.email %></h1>
+
+<% if can? :manage, @user %>
+  <p>Sign in count: <%= @user.sign_in_count %></p>
+  <%= link_to "Edit", edit_user_path %>
+<% else %>
+  <%= link_to "Edit", edit_user_registration_path %>
+<% end %>

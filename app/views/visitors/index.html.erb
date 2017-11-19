@@ -1,0 +1,4 @@
+<h1>Welcome From Visitors Controller</h1>
+<% if can? :manage, User %>
+  <%= link_to "Users", users_path %>
+<% end %>

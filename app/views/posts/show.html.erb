@@ -1,0 +1,4 @@
+<h1><%= @post.content %></h1>
+<% if can? :update, @post %>
+  <%= link_to "Edit", edit_post_path %>
+<% end %>
