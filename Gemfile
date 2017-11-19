@@ -17,6 +17,7 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'pry'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
