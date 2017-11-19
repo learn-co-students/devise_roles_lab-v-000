@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'pry-rails'
+gem 'learn-co'
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
@@ -9,7 +11,6 @@ gem 'high_voltage'
 gem 'sqlite3'
 
 group :development do
-  gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'web-console'
