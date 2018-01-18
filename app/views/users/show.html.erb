@@ -1,0 +1,6 @@
+User
+<% if current_user == @user %>
+  'User' <%= current_user.email %>
+ <% else %>
+Access denied.
+<% end %>
