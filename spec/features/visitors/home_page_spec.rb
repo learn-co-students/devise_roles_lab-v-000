@@ -8,9 +8,9 @@ feature 'Home page' do
   #   Given I am a visitor
   #   When I visit the home page
   #   Then I see "Welcome"
-  scenario 'visit the home page' do
-    visit root_path
-    expect(page).to have_content 'Welcome'
-  end
+  #scenario 'visit the home page' do
+  #  visit root_path
+  #  expect(page).to have_content 'Welcome'
+  #end
 
 end
