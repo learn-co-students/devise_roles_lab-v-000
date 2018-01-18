@@ -41,5 +41,27 @@ describe PostsController do
         expect(created_post.reload.content).to eq('foo')
       end
     end
+
+    context 'post owner' do
+      before do
+        @user = create(:user, role: 0)
+        sign_in 'user', @user
+  
+      end
+
+      it 'allows the request' do
+      
+        created_post = create(:post, content: 'bar', user_id: @user.id)
+
+        post :update, id: created_post.id, post: { content: 'foo' , user_id: @user.id}
+        
+
+        expect(created_post.reload.content).to eq('foo')
+      end
+    end
+
   end
+
+
+  
 end
