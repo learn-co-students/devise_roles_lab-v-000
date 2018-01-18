@@ -41,5 +41,6 @@ describe PostsController do
         expect(created_post.reload.content).to eq('foo')
       end
     end
+
   end
 end

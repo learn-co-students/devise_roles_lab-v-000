@@ -1,0 +1,3 @@
+<p><%= link_to truncate(post.content), post_path(post) %></p>
+<p>Written by: <%= link_to post.user.email, user_path(post.user) %></p>
+<br></br>

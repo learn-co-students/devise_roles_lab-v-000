@@ -1,0 +1,10 @@
+<p><%= @post.content %></p>
+<p>Written by: <%= link_to @post.user.email, user_path(@post.user) %></p>
+
+<% if @post.user == current_user || current_user.vip? || current_user.admin? %>
+  <%= link_to "Edit Post", edit_post_path(@post) %>
+<% end %>
+
+<% if @post.user == current_user || current_user.admin? %>
+  <%= link_to "Delete Post", @post, method: 'delete', data: { confirm: "Really?" } %>
+<% end %>
