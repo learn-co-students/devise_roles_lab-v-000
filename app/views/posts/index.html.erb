@@ -1,0 +1,6 @@
+<ul>
+  <% @posts.each do |post| %>
+    <p><%= post.user.try(:name) || post.user.try(:email) || "User" %> wrote:</p>
+    <p><%= link_to post.content, post_path(post) %></p>
+  <% end %>
+</ul>

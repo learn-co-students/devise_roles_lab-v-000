@@ -1,0 +1,12 @@
+<p>Welcome</p>
+<ul>
+  <% @users.each do |user| %>
+    <% if user.try(:name) && user.try(:email) %>
+      <%= user.name + " - " + user.email %>
+    <% elsif user.try(:email) %>
+      <% user.email %>
+    <% elsif user.try(:name) %>
+      <% user.name %>
+    <% end %>
+  <% end %>
+</ul>
