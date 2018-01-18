@@ -15,6 +15,9 @@
     <main role="main">
       <%= render 'layouts/messages' %>
       <%= yield %>
+
+      <%= link_to("Sign Out", destroy_user_session_path) %>
     </main>
+
   </body>
 </html>
