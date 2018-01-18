@@ -10,10 +10,16 @@
   </head>
   <body>
     <header>
-      <%= render 'layouts/navigation' %>
+      <%= link_to "Home", "/" %>
+      <%= link_to "Sign In", new_user_session_path %>
+      <%= link_to "Sign Up", new_user_registration_path %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
     </header>
+
     <main role="main">
-      <%= render 'layouts/messages' %>
+      <%= content_tag(:div, flash[:error], :id => "flash-error") if flash[:error] %>
+      <%= content_tag(:div, flash[:notice], :id => "flash-notice") if flash[:notice] %>
+      <%= content_tag(:div, flash[:alert], :id => "flash-alert") if flash[:alert] %>
       <%= yield %>
     </main>
   </body>
