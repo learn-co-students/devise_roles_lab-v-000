@@ -1,0 +1,11 @@
+<h1>Welcome</h1>
+<% @users.each do |user| %>
+  <%= link_to user.email, user %>
+  <%= form_for(user) do |f| %>
+    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+    <%= f.submit 'Change Role' %>
+  <% end %>
+  <% if current_user %>
+    <%= link_to("Delete user", user_path(user), :method => :delete) if current_user.role == 'admin' %>
+  <% end %>
+<% end %>
