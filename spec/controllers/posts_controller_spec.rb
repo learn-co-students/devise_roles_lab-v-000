@@ -1,4 +1,15 @@
 describe PostsController do
+  describe '#create' do
+    before do
+      sign_in!('user')
+    end
+
+    it 'allows anyone to create a post' do
+      created_post = create(:post, content: 'bar')
+      expect(Post.last.content).to eq("bar")
+    end
+  end
+
   describe '#update' do
     context 'neither admin nor vip' do
       before do

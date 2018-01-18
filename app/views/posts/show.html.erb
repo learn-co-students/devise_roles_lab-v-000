@@ -1,0 +1,13 @@
+<h1>Posted by <%= @post.user.email %></h1><br><br>
+
+<h2><%= @post.subject unless !@post.subject %></h2>
+
+<%= @post.content %><br><br>
+
+<% if current_user && current_user.admin? || current_user && current_user.vip? || current_user && current_user.id = @post.user_id %>
+
+  <%= link_to "Edit", edit_post_path(@post) %>
+
+  <%= link_to "Destroy", post_path(@post), :method => "delete" %>
+
+<% end %>

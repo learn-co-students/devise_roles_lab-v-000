@@ -1,0 +1,11 @@
+<h1>POSTS</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+
+    <h3><li><%= link_to "#{post.subject unless !post.subject}", post_path(post) %></li></h3> <p>by <%= link_to post.user.email, user_path(post.user) %></p>
+
+    <p><%= post.content %></p>
+
+  <% end %>
+</ul>
