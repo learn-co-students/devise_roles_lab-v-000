@@ -1,0 +1,5 @@
+<h1>Post</h1>
+<%= link_to "Edit", edit_post_path(@post) if can_edit_post(@post) %>
+<h2>Content</h2>
+
+<p><%= @post.content %></p>

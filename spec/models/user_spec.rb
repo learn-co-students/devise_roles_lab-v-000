@@ -24,4 +24,15 @@ RSpec.describe User, type: :model do
     @user.role = :admin
     expect(@user.role).to eq "admin"
   end
+
+  describe "Associations" do
+
+    it "has many posts" do
+      @user.posts.build(content: "hahaha")
+      @user.posts.build(content: "ladedahdedah")
+
+      expect(@user.posts.size).to eq(2)
+    end
+      
+  end
 end
