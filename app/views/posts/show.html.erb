@@ -1,0 +1,5 @@
+<h3><%= @post.content %></h3>
+<p>Written by <%= User.find_by(id: @post.user_id).email %></p>
+
+<br>
+<%= link_to "View Posts", posts_path %>
