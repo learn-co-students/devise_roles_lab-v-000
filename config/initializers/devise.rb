@@ -102,7 +102,7 @@ Devise.setup do |config|
   # config.pepper = '9c47c916df8064c1f7951566a320efbbf3d450486674dfd6f1eb7f50924fb9673b72a8a3ca1e1651a729d9a0d29921149712b30291b8e2b0ba7c1f26d3e574e6'
 
   # Send a notification email when the user's password is changed
-  # config.send_password_change_notification = false
+  #config.send_password_change_notification = false
 
   # ==> Configuration for :invitable
   # The period the generated invitation token is valid, after
@@ -172,7 +172,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  
+
   config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
@@ -268,7 +268,7 @@ Devise.setup do |config|
 
   # Set this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
-  # config.sign_out_all_scopes = true
+  config.sign_out_all_scopes = true
 
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like
