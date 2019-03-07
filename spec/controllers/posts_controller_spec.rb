@@ -9,7 +9,7 @@ describe PostsController do
         created_post = create(:post, content: 'bar')
 
         expect {
-          post :update, id: created_post.id, post: { content: 'foo' }
+          post :update, params: { id: created_post.id, post: { content: 'foo' } }
         }.not_to change(created_post, :content)
       end
     end
@@ -22,7 +22,7 @@ describe PostsController do
       it 'allows the request' do
         created_post = create(:post, content: 'bar')
 
-        post :update, id: created_post.id, post: { content: 'foo' }
+        post :update, params: { id: created_post.id, post: { content: 'foo' } }
 
         expect(created_post.reload.content).to eq('foo')
       end
@@ -36,7 +36,7 @@ describe PostsController do
       it 'allows the request' do
         created_post = create(:post, content: 'bar')
 
-        post :update, id: created_post.id, post: { content: 'foo' }
+        post :update, params: { id: created_post.id, post: { content: 'foo' } }
 
         expect(created_post.reload.content).to eq('foo')
       end

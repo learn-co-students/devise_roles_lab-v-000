@@ -9,7 +9,7 @@ describe UsersController do
 
       it 'does not allow the request' do
         expect {
-          delete :destroy, id: user.id
+          delete :destroy, params: { id: user.id }
         }.not_to change(User, :count)
       end
     end
@@ -23,7 +23,7 @@ describe UsersController do
 
       it 'does not allow the request' do
         expect {
-          delete :destroy, id: user.id
+          delete :destroy, params: { id: user.id }
         }.not_to change(User, :count)
       end
     end
@@ -37,7 +37,7 @@ describe UsersController do
 
       it 'allows the request' do
         expect {
-          delete :destroy, id: user.id
+          delete :destroy, params: { id: user.id }
         }.to change(User, :count).by(-1)
       end
     end
