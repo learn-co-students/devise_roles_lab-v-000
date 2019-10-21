@@ -35,7 +35,6 @@ Provided is a Rails skeleton with the [Devise] gem installed.
 1. Use the failing specs to help you update the `UsersController.` You'll want
    to use authentication and authorization filters to help accomplish this
    goal. Ensure that only administrators can update or destroy users
-
 1. Run `rails generate devise:views` to generate the views
 1. Be sure to add the ERB code to display the [`flash`][flash] in
    `app/views/layouts/application.html.erb`
