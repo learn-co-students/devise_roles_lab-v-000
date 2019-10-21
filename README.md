@@ -12,7 +12,7 @@ In this lab, we're going to make a simple discussion board.
 
 We'll have a `Post` model, and three user roles: user, vip, and admin.
 
-* `User`s can read anyone's `Po`sts, and create, read, update, and delete their own `Po`sts.
+* `User`s can read anyone's `Post`s, and create, read, update, and delete their own `Po`sts.
 * VIPs can do everything a `User` can do, and update other users' `Post`s.
 * Admins can do anything that `User`s and VIPs can do, and they can delete other users' `Post`s.
 
