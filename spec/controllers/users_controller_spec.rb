@@ -1,7 +1,7 @@
 describe UsersController do
   describe '#destroy' do
     context 'neither admin nor vip' do
-      let!(:user) { create(:user) }
+      let!(:user) { FactoryBot.create(:user) }
 
       before do
         sign_in!
@@ -15,7 +15,7 @@ describe UsersController do
     end
 
     context 'vip' do
-      let!(:user) { create(:user) }
+      let!(:user) { FactoryBot.create(:user) }
 
       before do
         sign_in!('vip')
@@ -29,7 +29,7 @@ describe UsersController do
     end
 
     context 'admin' do
-      let!(:user) { create(:user) }
+      let!(:user) { FactoryBot.create(:user) }
 
       before do
         sign_in!('admin')
