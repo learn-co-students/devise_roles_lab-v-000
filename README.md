@@ -21,10 +21,12 @@ We'll have a `Post` model, and three user roles: user, vip, and admin.
 Provided is a Rails skeleton with the [Devise] gem installed.
 
 1. Run the migrations. A basic `User` model and its migrations have been set up
-   for you as part of the devise install
-2. Add roles to the user model. The specs will tell you what roles are expected
-   of the model
-3. Create a `UsersController,` and add authentication and authorization filters
+   for you as part of the devise install. We'll want to get the roles working.
+   Run `rspec spec/models/user_spec.rb`. Take a look at the
+   `User` model and the `User` spec as well. The spec tell you that you need to
+   add roles.
+2. Add roles to the `User` model
+3. Update the `UsersController,` and add authentication and authorization filters
    to it. Ensure that only administrators can update or destroy users
 4. Run `rails generate devise:views` to generate the views
 5. Be sure to add the ERB code to display the [`flash`][flash] in
