@@ -15,7 +15,7 @@ about [Devise]. There will be three possible roles: user, vip, and admin.
 
 We'll also have a `Post` model.
 
-* `User`s can read anyone's `Post`s, and create, read, update, and delete their own `Po`sts.
+* `User`s can read anyone's `Post`s, and create, read, update, and delete their own `Post`s.
 * VIPs can do everything a `User` can do, and update other users' `Post`s.
 * Admins can do anything that `User`s and VIPs can do, and they can delete other users' `Post`s.
 
