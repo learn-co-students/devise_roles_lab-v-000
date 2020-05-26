@@ -61,6 +61,5 @@ feature and model specs for the `Users` controller to see how to write these.
 
 * [Lab Review](https://www.youtube.com/watch?v=RTXyPhRBQ_4)
 
-
 [Devise]: https://github.com/plataformatec/devise
 [flash]: https://api.rubyonrails.org/classes/ActionDispatch/Flash.html
