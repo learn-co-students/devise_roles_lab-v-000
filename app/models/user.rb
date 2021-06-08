@@ -3,13 +3,16 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   after_validation :set_default_role
+  enum role: [:user, :vip, :admin]
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
   private
 
   def set_default_role
-    # Set default role here.
+    self.role = 0
+
   end
 end
